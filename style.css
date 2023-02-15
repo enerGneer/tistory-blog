@@ -6,10 +6,6 @@
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
-#content .container_postbtn .postbtn_like .wrap_btn[id^=reaction-] button {
-  width: 5rem !important;
-}
-
 *,
 ::before,
 ::after {
@@ -27,47 +23,6 @@
 ::after {
   --tw-content: '';
 }
-
-
-/* 커스텀 calendar 시작*/
-.calendar {  width: 16rem !important;}
-.calendar .tt-calendar {width:100% !important;border-collapse:collapse;margin: 0 auto;}
-.calendar .tt-calendar caption { margin-bottom: 10px; }
-.calendar .tt-calendar caption a:first-child, .calendar .tt-calendar caption a:last-child 
-{font-size:0.7em !important; }
-.calendar .tt-calendar caption a {vertical-align:middle;}
-.calendar .tt-calendar th, .calendar .tt-calendar td {padding:5px 0;text-align:center;}
-.calendar .tt-calendar th {font-size: 0.9em !important;font-weight:600;}
-.calendar .tt-calendar td {font-size:0.8em !important;}
-.calendar .tt-calendar .cal_current_week {}
-.calendar .tt-calendar .cal_week2, .calendar .tt-calendar .cal_day_sunday {}
-.calendar .tt-calendar td a {
-  display:inline-block;background: #C5E1A5;color: #C5E1A5  !important;
-  border-radius: 100%;width: 20px;height: 20px;line-height: 20px; font-size:1em !important;}
-.calendar .tt-calendar .cal_day4 {color: #85bdac;}
-.calendar .tt-calendar .cal_day4 a {background: #85bdac;color:#85bdac !important; font-size:1em !important;}
-.cal_month .PrevMonthBtn::before,
-.cal_month .NextMonthBtn::before,
-.cal_month .Month {
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin: 3px;
-}
-.cal_month .PrevMonthBtn::before {
-  content: '\f104';
-  font-family: 'Font Awesome 5 Free';
-}
-.cal_month .NextMonthBtn::before {
-  content: '\f105';
-  font-family: 'Font Awesome 5 Free';
-}
-/*  끝*/
-
-/* 커스텀 카테고리 컬러 */
-.text-cate-color {
-  color: #85bdac;
-}
-
 
 /*
 1. Use a consistent sensible line-height in all browsers.
@@ -87,7 +42,7 @@ html {
   -o-tab-size: 4;
   tab-size: 4;
   /* 3 */
-  font-family: 'Pretendard JP Variable', Noto Sans KR, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Noto Sans KR, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -103,11 +58,7 @@ body {
   /* 1 */
   line-height: inherit;
   /* 2 */
-  font-family: 'Pretendard JP Variable';
-
 }
-
-
 
 /*
 1. Add the correct height in Firefox.
@@ -176,7 +127,7 @@ samp,
 pre {
   font-family: D2Coding, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
   /* 1 */
-  font-size: 0.95em; /*커스텀*/
+  font-size: 1em;
   /* 2 */
 }
 
@@ -690,6 +641,10 @@ video {
   z-index: 10;
 }
 
+.-z-\[1\] {
+  z-index: -1;
+}
+
 .m-0 {
   margin: 0px;
 }
@@ -966,14 +921,6 @@ video {
   width: auto;
 }
 
-.w-\[calc\(100\%-90px\)\] {
-  width: calc(100% - 90px);
-}
-
-.w-\[calc\(100\%-75px\)\] {
-  width: calc(100% - 75px);
-}
-
 .w-56 {
   width: 14rem;
 }
@@ -1246,9 +1193,9 @@ video {
   border-left-color: rgb(102 102 110 / var(--tw-border-opacity));
 }
 
-.border-b-h-300 {
+.border-b-h-200 {
   --tw-border-opacity: 1;
-  border-bottom-color: rgb(230 230 233 / var(--tw-border-opacity));
+  border-bottom-color: rgb(244 244 246 / var(--tw-border-opacity));
 }
 
 .bg-h-100 {
@@ -1314,14 +1261,6 @@ video {
 .p-5 {
   padding: 1.25rem;
 }
-
-/*커스텀 추가 HTML의 px-4인 부분을 px-5로 바꿔주었음 모바일 보기 본문 양쪽 여백용*/
-.px-5 {
-  padding-left: 1.5rem;
-  padding-right: 1.5rem;
-}
-/*커스텀 끝*/
-
 
 .px-4 {
   padding-left: 1rem;
@@ -1400,12 +1339,6 @@ video {
   padding-top: 1rem;
 }
 
-/* 커스텀 추가 */
-.pt-1 {
-  padding-top: 0.25rem;
-}
-/* 커스텀 추가 끝 */
-
 .pb-1 {
   padding-bottom: 0.25rem;
 }
@@ -1459,7 +1392,7 @@ video {
 }
 
 .font-sans {
-  font-family: 'Pretendard JP Variable', Noto Sans KR, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Noto Sans KR, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 }
 
 .font-\[initial\] {
@@ -1503,10 +1436,6 @@ video {
 
 .text-\[0\] {
   font-size: 0;
-}
-
-.font-extrabold {
-  font-weight: 800;
 }
 
 .font-bold {
@@ -1571,14 +1500,9 @@ video {
   color: rgb(244 244 246 / var(--tw-text-opacity));
 }
 
-.text-h-300 {
-  --tw-text-opacity: 1;
-  color: rgb(230 230 233 / var(--tw-text-opacity));
-}
-
 .text-h-orange {
   --tw-text-opacity: 1;
-  color: rgb(133, 189, 172 / var(--tw-text-opacity)); /*커스텀 링크색*/
+  color: rgb(255 85 68 / var(--tw-text-opacity));
 }
 
 .opacity-0 {
@@ -2143,8 +2067,7 @@ button {
   }
 
   .lg\:text-3xl {
-    font-size: 1.75rem;
-    /* font-size: 1.875rem; */
+    font-size: 1.875rem;
     line-height: 2.25rem;
   }
 
@@ -2386,7 +2309,8 @@ button {
 #content .contents_style a {
 
   --tw-text-opacity: 1;
-  color: rgb(133, 189, 172, var(--tw-text-opacity)); /*커스텀 링크*/
+
+  color: rgb(255 85 68 / var(--tw-text-opacity));
 
   text-decoration-thickness: 0px
 }
@@ -2395,7 +2319,7 @@ button {
 
   --tw-text-opacity: 1;
 
-  color: rgb(133, 189, 172 / var(--tw-text-opacity)); /*커스텀 링크*/
+  color: rgb(93 176 215 / var(--tw-text-opacity))
 }
 
 #content .contents_style h2,
@@ -2408,31 +2332,8 @@ button {
 
   scroll-margin-top: 5rem;
 
-  font-weight: 700;
+  font-weight: 500
 }
-
-/* 커스텀 h2 */
-#content .contents_style h2{
-  border-bottom : 1px solid #eaecef !important;
-  margin: .8em 0 !important;
-  padding-bottom : .25em;
-}
-
-/* #content .contents_style h2{
-  display: inline-block;
-}
-#content .contents_style h2>a {
-  line-height:160%;
-}
-#content .contents_style h2>a::after {
-    content: "" !important;
-    height: 5px !important;
-    display: block !important;
-    width: 100% !important;
-    background-color: #85bdac !important;
-    border-radius: 5px !important;
-} */
-/* 커스텀 h2 끝*/
 
 #content .contents_style h2 a,
 #content .contents_style h3 a,
@@ -2440,7 +2341,7 @@ button {
 
   --tw-text-opacity: 1;
 
-  color: rgb(53 54 56 / var(--tw-text-opacity)) !important;
+  color: rgb(53 54 56 / var(--tw-text-opacity))
 }
 
 .dark #content .contents_style h2 a,
@@ -2449,7 +2350,7 @@ button {
 
   --tw-text-opacity: 1;
 
-  color: rgb(244 244 246 / var(--tw-text-opacity)) !important;
+  color: rgb(244 244 246 / var(--tw-text-opacity))
 }
 
 #content .contents_style h2 {
@@ -2463,7 +2364,7 @@ button {
 
   #content .contents_style h2 {
 
-    font-size: 1.5rem; /* 커스텀 폰트 사이즈*/
+    font-size: 1.5rem;
 
     line-height: 2rem
   }
@@ -2480,7 +2381,7 @@ button {
 
   #content .contents_style h3 {
 
-    font-size: 1.3rem; /* 커스텀 사이즈 */
+    font-size: 1.25rem;
 
     line-height: 1.75rem
   }
@@ -2497,7 +2398,7 @@ button {
 
   #content .contents_style h4 {
 
-    font-size: 1.2rem; /* 커스텀 사이즈 */
+    font-size: 1.125rem;
 
     line-height: 1.75rem
   }
@@ -2582,7 +2483,7 @@ button {
 
   --tw-text-opacity: 1;
 
-  color: rgb(133, 189, 172, var(--tw-text-opacity));/*커스텀 링크색*/
+  color: rgb(255 85 68 / var(--tw-text-opacity))
 }
 
 .dark #content .contents_style p a,
@@ -2624,7 +2525,7 @@ button {
 
   padding-bottom: 0.125rem;
 
-  font-family: 'Pretendard JP Variable', Noto Sans KR, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Noto Sans KR, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   font-size: 0.875rem;
 
@@ -2876,18 +2777,7 @@ button {
 
   border-bottom-left-radius: 0.75rem;
 
-  border-right-width: 0px;
-
-  --tw-bg-opacity: 1;
-
-  background-color: rgb(244 244 246 / var(--tw-bg-opacity))
-}
-
-.dark #content .contents_style figure[data-ke-type=opengraph] a .og-image {
-
-  --tw-bg-opacity: 1;
-
-  background-color: rgb(41 42 45 / var(--tw-bg-opacity))
+  border-right-width: 0px
 }
 
 #content .contents_style figure[data-ke-type=opengraph] .og-text {
@@ -2912,7 +2802,7 @@ button {
 #content .contents_style figure[data-ke-type=opengraph] .og-text .og-desc,
 #content .contents_style figure[data-ke-type=opengraph] .og-text .og-host {
 
-  font-family: 'Pretendard JP Variable', Noto Sans KR, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+  font-family: Noto Sans KR, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --tw-text-opacity: 1;
 
@@ -2986,11 +2876,11 @@ button {
 
   right: 0px;
 
+  z-index: -1;
+
   height: 0px;
 
   width: 100%;
-
-  width: calc(100% - 90px);
 
   border-bottom-width: 1px;
 
@@ -3005,19 +2895,7 @@ button {
   content: var(--tw-content)
 }
 
-.dark #content .contents_style [data-ke-type=moreLess]::before {
-
-  --tw-border-opacity: 1;
-
-  border-color: rgb(244 244 246 / var(--tw-border-opacity))
-}
-
-#content .contents_style [data-ke-type=moreLess].open::before {
-
-  width: calc(100% - 75px)
-}
-
-#content .contents_style [data-ke-type=moreLess].open>.btn-toggle-moreless::before {
+#content .contents_style [data-ke-type=moreLess].open .btn-toggle-moreless::before {
 
   --tw-content: '\f0ab';
 
@@ -3081,8 +2959,9 @@ button {
 
   margin-bottom: 1rem;
 
+  font-family: initial;
 
-  font-family: 'Pretendard JP Variable', Noto Sans KR, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji" !important;
+  font-family: Noto Sans KR, ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
 
   --tw-text-opacity: 1;
 
@@ -3100,7 +2979,7 @@ button {
 
   padding-top: 1.75rem;
 
-  font-size: 1rem;/* 커스텀 */
+  font-size: 1.25rem;
 
   line-height: 1.75rem;
 
@@ -3122,14 +3001,13 @@ button {
 
 #content .contents_style blockquote[data-ke-style][data-ke-style=style2] {
 
-  border-left-width: 4px;
+  border-left-width: 2px;
 
   border-style: solid;
 
   --tw-border-opacity: 1;
 
-/* 커스텀 */
-  border-color: rgb(153 153 161 / var(--tw-border-opacity));
+  border-color: rgb(230 230 233 / var(--tw-border-opacity));
 
   padding-left: 0.75rem;
 
@@ -3137,7 +3015,7 @@ button {
 
   text-align: left;
 
-  font-size: 0.95rem;/* 커스텀 */
+  font-size: 0.875rem;
 
   line-height: 1.25rem;
 
@@ -3145,6 +3023,7 @@ button {
 
   --tw-text-opacity: 1;
 
+  color: rgb(153 153 161 / var(--tw-text-opacity))
 }
 
 .dark #content .contents_style blockquote[data-ke-style][data-ke-style=style2] {
@@ -3155,7 +3034,6 @@ button {
 }
 
 #content .contents_style blockquote[data-ke-style][data-ke-style=style3] {
-  font-size: 0.95rem;/* 커스텀 */
 
   border-radius: 0.75rem;
 
@@ -3168,9 +3046,8 @@ button {
   line-height: 2;
 
   --tw-text-opacity: 1;
-/*커스텀*/
-  color: rgb(103 103 103 / var(--tw-text-opacity));
 
+  color: rgb(153 153 161 / var(--tw-text-opacity))
 }
 
 .dark #content .contents_style blockquote[data-ke-style][data-ke-style=style3] {
@@ -3642,8 +3519,7 @@ button {
 [data-mode=list] .list {
   display: flex;
   flex-direction: column;
-  row-gap: 4rem; /* 커스텀 너무 좁아서 넓게 만듦*/
-
+  row-gap: 1.5rem
 }
 
 @media (min-width: 640px) {
@@ -3655,8 +3531,7 @@ button {
 [data-mode=list] .post {
   display: flex;
   flex-direction: column;
-  row-gap: 1rem;
-
+  row-gap: 1rem
 }
 
 @media (min-width: 640px) {
@@ -3709,20 +3584,14 @@ button {
 
 @media (min-width: 1100px) {
   [data-mode=list] .post .description h2 {
-    font-size: 1.4rem;
-    /* 커스텀 리스트 보기 폰트 사이즈 */
-  line-height: 2.25rem;
+    font-size: 1.5rem;
+    line-height: 2rem
   }
 }
 
-[data-mode=list] .post .description time {
-  font-size: 0.8rem;
-}
-
 [data-mode=list] .post .description p {
-  margin-top: 0.3rem;
-  font-size: 0.95rem;   /* 커스텀 폰트 사이즈 */
-  max-height: 5rem;
+  margin-top: 0.75rem;
+  max-height: 5rem
 }
 
 [data-mode=list] .post .description p::after {
@@ -3771,7 +3640,7 @@ button {
 }
 
 [data-mode=grid] .post .description time {
-   display: none;
+  display: none
 }
 
 [data-mode=grid] .post .description p {
@@ -3983,18 +3852,11 @@ button {
   display: none
 }
 
-/* 카테고리 글 수 보여주는 폰트 굵기 커스텀 추가 */
-#sidebar #category .tt_category .link_item .c_cnt,
-#sidebar #category .tt_category .link_sub_item .c_cnt {
-  font-weight: initial;
-}
-/* 카테고리 글 수 보여주는 폰트 굵기 커스텀 끝 */
-
 #sidebar #category .tt_category .link_tit .c_cnt,
 #sidebar #category .tt_category .link_item .c_cnt,
 #sidebar #category .tt_category .link_sub_item .c_cnt {
   font-size: 0.75rem;
-  line-height: 1rem;
+  line-height: 1rem
 }
 
 #sidebar #category .tt_category .link_tit {
@@ -4021,9 +3883,7 @@ button {
 #sidebar #category .tt_category ul li {
   position: relative;
   font-size: 0.875rem;
-  line-height: 1.25rem;
-      font-weight: 600;/* 카테고리 글자 굵기 커스텀  */
-
+  line-height: 1.25rem
 }
 
 #sidebar #category .tt_category ul li i {
@@ -4038,12 +3898,6 @@ button {
   margin-top: 1rem
 }
 
-/* 카테고리 글자 굵기 추가 커스텀 */
-#sidebar #category .tt_category .sub_category_list li .link_sub_item{
-  font-weight:initial;
-}
-/* 카테고리 글자 굵기 끝 */
-
 #sidebar #category .tt_category .sub_category_list li .link_sub_item::before {
   margin-right: 0.25rem;
   font-size: 0.875rem;
@@ -4053,7 +3907,7 @@ button {
   --tw-content: '\f105';
   content: var(--tw-content);
   font-family: 'Font Awesome 6 Free';
-  font-weight: 700;
+  font-weight: 700
 }
 
 #sidebar #blogmenu ul {
