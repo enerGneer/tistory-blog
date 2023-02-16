@@ -92,7 +92,7 @@
                       <s_cover_item>
                         <div class="post">
                           <s_cover_item_thumbnail>
-                            <div class="thumbnail" href="[##_cover_item_url_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></div>
+                            <a class="thumbnail" href="[##_cover_item_url_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></a>
                           </s_cover_item_thumbnail>
                           <s_cover_item_article_info>
                             <div class="description flex flex-col">
@@ -119,12 +119,12 @@
                       <s_cover_item>
                         <div class="post">
                           <s_cover_item_thumbnail>
-                            <div class="thumbnail" href="[##_cover_item_url_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></div>
+                            <a class="thumbnail" onclick="location.href='[##_cover_item_url_##]'"><img class="lazyload object-cover bg-h-100" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></a>
                           </s_cover_item_thumbnail>
                           <s_cover_item_article_info>
                             <div class="description flex flex-col"><a class="category text-sm text-h-400" href="[##_cover_item_category_url_##]">[##_cover_item_category_##]</a>
                               <h2><a class="text-h-800 dark:text-h-200" href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></h2>
-                              <time class="text-h-400 text-sm">[##_cover_item_simple_date_##]</time>
+                              <time class="text-h-400 text-xs">[##_cover_item_simple_date_##]</time>
 <!--                              <p class="relative overflow-hidden leading-7 text-h-500 dark:text-h-400">[##_cover_item_summary_##]</p>-->
                             </div>
                           </s_cover_item_article_info>
@@ -259,7 +259,7 @@
           <s_article_rep>
             <s_permalink_article_rep>
               <div id="permalink">
-              <!-- 커스텀 글 헤더 -->
+              <!-- 커스텀 글 헤더 
                 <header class="px-5 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto mt-20 lg:mt-40 mb-10 lg:mb-16">
                   <div class="description text-h-800 dark:text-h-200 lg:mx-0">
                   <a href="[##_article_rep_category_link_##]"><span class="font-bold text-cate-color">[##_article_rep_category_##]</span></a>
@@ -269,15 +269,30 @@
                       </span></div>
                   </div>
                 </header>
+                커스텀 글 헤더 끝 -->
+
+<!-- 커스텀 헤더 2 -->
+                <header class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16">
+                  <s_article_rep_thumbnail>
+                    <div class='thumbnail absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="https://images.unsplash.com/photo-1660490987070-b7cc89e41b38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt=""></div>
+                  </s_article_rep_thumbnail>
+                  <div class="description flex flex-col items-center gap-y-2 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0 mt-8">
+                    <h1 class="text-center font-bold text-2xl lg:text-3xl">[##_article_rep_title_##]</h1>
+                    <div class="flex gap-x-2 text-xs"><time>[##_article_rep_date_##]</time> | <a href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a> <span class="admin flex gap-x-2">
+                        <s_ad_div><a href="[##_s_ad_m_link_##]">수정</a><a href="#" onclick="[##_s_ad_d_onclick_##]">삭제</a><a href="#" onclick="[##_s_ad_s2_onclick_##]">[##_s_ad_s1_label_##]</a></s_ad_div>
+                      </span></div>
+                  </div>
+                </header>
+
 
                 <!-- 헤더 원본 보존 여기부터
-                <header class="h-64 mt-8 flex justify-center items-center">
+                <header class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16">
                   <s_article_rep_thumbnail>
                     <div class='thumbnail absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="[##_article_rep_thumbnail_url_##]" alt=""></div>
                   </s_article_rep_thumbnail>
-                  <div class="description flex flex-col items-center gap-y-2 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0"><a href="[##_article_rep_category_link_##]"><span class="font-bold text-h-400">[##_article_rep_category_##]</span></a>
+                  <div class="description flex flex-col items-center gap-y-2 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0"><a href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
                     <h1 class="text-center font-bold text-2xl lg:text-3xl">[##_article_rep_title_##]</h1>
-                    <div class="flex gap-x-2"><time class="text-sm text-h-400">[##_article_rep_date_##]</time><span class="admin flex gap-x-2 text-sm">
+                    <div class="flex gap-x-2"><time class="text-sm">[##_article_rep_date_##]</time><span class="admin flex gap-x-2 text-sm">
                         <s_ad_div><a href="[##_s_ad_m_link_##]">수정</a><a href="#" onclick="[##_s_ad_d_onclick_##]">삭제</a><a href="#" onclick="[##_s_ad_s2_onclick_##]">[##_s_ad_s1_label_##]</a></s_ad_div>
                       </span></div>
                   </div>
@@ -328,13 +343,13 @@
                       <s_tag_label>
                         <div class="mt-2 flex flex-wrap gap-x-1.5 text-[0]" id="tags">[##_tag_label_rep_##]</div>
                       </s_tag_label>
-                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
+<!--                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
                         <div class="flex flex-col gap-y-1">
                           <div class="text-h-800 dark:text-h-200 font-bold">[##_blogger_##]</div>
                           <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
                         </div>
                       </div>
-                    </footer>
+-->                    </footer>
                   </div>
                 </div>
                 <s_rp>
@@ -410,7 +425,7 @@
                   </s_article_rep_thumbnail>
                   <div class="description flex flex-col items-center gap-y-2 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0">
                     <h1 class="text-center font-bold text-2xl lg:text-3xl">[##_article_rep_title_##]</h1>
-                    <div class="flex gap-x-2"><time class="text-sm">[##_article_rep_simple_date_##]</time></div>
+                    <div class="flex gap-x-2"><time class="text-xs">[##_article_rep_simple_date_##]</time></div>
                   </div>
                 </header>
                 <div class="px-5 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
@@ -443,13 +458,13 @@
                   </article>
                   <div x-data="{ shown: false }" x-intersect.once="shown = true">
                     <footer class="mt-4" x-show="shown">
-                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
+<!--                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
                         <div class="flex flex-col gap-y-1">
                           <div class="text-h-800 dark:text-h-200 font-bold">[##_blogger_##]</div>
                           <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
                         </div>
                       </div>
-                    </footer>
+-->                    </footer>
                   </div>
                 </div>
               </div>
@@ -460,7 +475,7 @@
                   <div class="py-20 flex flex-col justify-center items-center">
                     <header class="flex flex-col items-center gap-y-2 mx-4 lg:mx-0"><a href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
                       <h1 class="text-center font-bold text-2xl text-h-800 dark:text-h-200 lg:text-3xl">[##_article_rep_title_##]</h1>
-                      <div><time class="text-h-400 text-sm">[##_article_rep_simple_date_##]</time></div>
+                      <div><time class="text-h-400 text-xs">[##_article_rep_simple_date_##]</time></div>
                     </header>
                     <div class="flex flex-col items-center gap-y-4 px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
                       <p class="text-center leading-7 mt-8 text-h-800 dark:text-h-200">보호되어 있는 글입니다.<br>내용을 보시려면 비밀번호를 입력하세요.</p><input class="inline-block h-10 border-0 text-sm px-3 w-48 outline-none bg-h-300 text-h-400 dark:bg-h-700 dark:text-h-200" type="password" maxlength="16" id="[##_article_password_##]" name="[##_article_password_##]" onkeydown="if (event.keyCode == 13)[##_article_dissolve_##]" placeholder="비밀번호">
@@ -478,7 +493,7 @@
                     <div class="thumbnail" href="[##_notice_rep_link_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_notice_rep_thumbnail_url_##]" data-sizes="auto" alt=""></div>
                   </s_notice_rep_thumbnail>
                   <div class="description flex flex-col">
-                    <h2><a class="text-h-800 dark:text-h-200 [&_img]:hidden" href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></h2><time class="text-h-400 text-sm">[##_notice_rep_date_##]</time>
+                    <h2><a class="text-h-800 dark:text-h-200 [&_img]:hidden" href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></h2><time class="text-h-400 text-xs">[##_notice_rep_date_##]</time>
                     <p class="relative overflow-hidden text-h-400 leading-7">[##_notice_rep_summary_##]</p>
                   </div>
                 </div>
@@ -492,7 +507,7 @@
                   </s_notice_rep_thumbnail>
                   <div class="description flex flex-col items-center gap-y-2 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0"><a class="/notice">공지사항</a>
                     <h1 class="text-center font-bold text-2xl lg:text-3xl">[##_notice_rep_title_##]</h1>
-                    <div class="flex gap-x-2"><time class="text-sm">[##_notice_rep_date_##]</time></div>
+                    <div class="flex gap-x-2"><time class="text-xs">[##_notice_rep_date_##]</time></div>
                   </div>
                 </header>
                 <div class="px-5 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
@@ -525,20 +540,27 @@
                   </article>
                   <div x-data="{ shown: false }" x-intersect.once="shown = true">
                     <footer class="mt-4" x-show="shown">
-                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
+<!--                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
                         <div class="flex flex-col gap-y-1">
                           <div class="text-h-800 dark:text-h-200 font-bold">[##_blogger_##]</div>
                           <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
                         </div>
                       </div>
-                    </footer>
+-->                    </footer>
                   </div>
                 </div>
               </div>
             </s_permalink_article_rep>
           </s_notice_rep>
           <s_tag>
-            <div class="w-full px-5 mt-20 lg:mt-40 lg:mx-auto lg:w-idx lg:px-0" id="tag-cloud">
+<!--커스텀 태그 헤더-->
+                <header class="h-64 mb-10 flex justify-center items-center">
+                  <div class="description flex flex-col items-center gap-y-2 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0 mt-8">
+                        <h1 class="font-bold text-2xl lg:text-3xl">Tag Cloud</h1>
+                  </div>
+                </header>
+                <!-- 커스텀 태그 헤더 끝 -->
+            <div class="w-full px-5 lg:mx-auto lg:w-idx lg:px-0" id="tag-cloud">
               <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
                 <s_tag_rep>
                   <li><a class="[##_tag_class_##] text-overflow-hidden text-center inline-block px-4 py-5 rounded-md duration-200 w-full bg-h-200 text-h-600 hover:bg-h-600 hover:text-h-200 dark:text-h-400 dark:bg-h-700 dark:hover:bg-h-600" href="[##_tag_link_##]">[##_tag_name_##]</a></li>
@@ -548,12 +570,12 @@
           </s_tag>
           <s_list>
             <section data-mode="[##_list_style_##]">
-
               <header class="h-64 mb-10 flex justify-center items-center">
                 <s_list_image>
-                  <div class='thumbnail absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="[##_list_image_##]" alt=""></div>
+<!-- 첫페이지 전체글 헤더 커스텀 이미지 -->
+                  <div class='thumbnail absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="https://images.unsplash.com/photo-1660490987070-b7cc89e41b38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt=""></div>
                 </s_list_image>
-                <div class="description flex flex-col items-center z-20 relative mx-4 text-center text-h-800 dark:text-h-200 lg:mx-0">
+                <div class="description flex flex-col items-center z-20 relative mx-4 text-center text-h-800 dark:text-h-200 lg:mx-0 mt-8">
                   <h1 class="font-bold text-2xl lg:text-3xl">[##_list_conform_##]</h1><span class="font-bold mt-3 empty:mt-0">[##_list_description_##]</span>
                 </div>
               </header>
@@ -562,12 +584,12 @@
                 <s_list_rep>
                   <div class="post">
                     <s_list_rep_thumbnail>
-                      <div class="thumbnail" href="[##_list_rep_link_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_list_rep_thumbnail_##]" data-sizes="auto" alt=""></div>
+                      <a class="thumbnail" href="[##_list_rep_link_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_list_rep_thumbnail_##]" data-sizes="auto" alt=""></a>
                     </s_list_rep_thumbnail>
                     <div class="description flex flex-col">
                     <!--<a class="text-sm text-h-400" href="[##_list_rep_category_link_##]"><span class="font-medium">[##_list_rep_category_##]</span></a>-->
                       <h2><a class="text-h-800 dark:text-h-200 [&_img]:hidden" href="[##_list_rep_link_##]">[##_list_rep_title_##]</a></h2>
-                      <time class="text-h-400 text-sm">[##_list_rep_regdate_##]</time>
+                      <time class="text-h-400 text-xs">[##_list_rep_regdate_##]</time>
                       <p class="relative overflow-hidden text-h-400 leading-7">[##_list_rep_summary_##]</p>
                       <!-- 커스텀 글목록 카테고리-->
 <!--                      <span class="pt-1">
@@ -582,13 +604,13 @@
           <s_paging>
             <ul class="flex justify-center items-center mt-8 lg:mt-20" id="paging">
               <li>
-                <div class="[##_no_more_prev_##]" [##_prev_page_##]=""><span class="text-hidden">이전</span><i class="fa fa-angle-left"></i></div>
+                <div class="[##_no_more_prev_##]" [##_prev_page_##]=""><a [##_prev_page_##]><span class="text-hidden">이전</span><i class="fa fa-angle-left"></i></a></div>
               </li>
               <s_paging_rep>
                 <li><a [##_paging_rep_link_##]="">[##_paging_rep_link_num_##]</a></li>
               </s_paging_rep>
               <li>
-                <div class="[##_no_more_next_##]" [##_next_page_##]=""><i class="fa fa-angle-right"></i><span class="text-hidden">다음</span></div>
+                <div class="[##_no_more_next_##]" [##_next_page_##]=""><a [##_next_page_##]><i class="fa fa-angle-right"></i><span class="text-hidden">다음</span></a></div>
               </li>
             </ul>
           </s_paging>
@@ -596,11 +618,11 @@
         <aside class="h-full fixed top-0 w-sidebar overflow-hidden z-40 transition-[left] duration-200 p-0 bg-h-200 dark:bg-h-700 <s_if_var_sidebar>xl:left-0</s_if_var_sidebar>" id="sidebar" :class='sidebar ? "left-0" : "-left-64"'>
           <div class="flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-[calc(theme(width.sidebar)+theme(spacing.8))] absolute py-6 border-box">
             <s_sidebar>
-              <s_sidebar_element><!-- 프로필-->
+              <s_sidebar_element><!-- 프로필 커스텀 글자 굵기 -->
                 <div class="sidebar-element">
                   <div class="text-center flex flex-col items-center my-4"><img class="rounded-full" src="[##_image_##]" width="100" height="100" alt="[##_blogger_##]">
-                    <div><a class="link_tit inline-block pt-4 pb-1 font-medium" href="[##_blog_link_##]">[##_title_##]</a></div>
-                    <div class="text-h-400 text-sm">[##_blogger_##]</div>
+                    <div><a class="link_tit inline-block pt-4 pb-1 font-bold" href="[##_blog_link_##]">[##_title_##]</a></div>
+                    <div class="text-h-400 text-sm font-bold">[##_blogger_##]</div>
                   </div>
                 </div>
               </s_sidebar_element>
