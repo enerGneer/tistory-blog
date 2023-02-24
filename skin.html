@@ -75,7 +75,7 @@
     </div>
     <div class="fixed top-0 w-screen z-50" x-data="indicator" @scroll.window="indicate">
       <div class="w-screen">
-        <div class="w-0 h-0.5 bg-h-900 rounded bg-h-800 dark:bg-h-200" x-ref="indicator"></div>
+        <div class="w-0 h-0.5 bg-custom-color rounded" x-ref="indicator"></div>
       </div>
     </div>
     <s_t3>
@@ -85,7 +85,7 @@
             <div class="flex flex-col">
               <s_cover_rep>
                 <s_cover name="list">
-                  <section class="flex flex-col items-center px-5 lg:px-0 lg:w-idx lg:mx-auto" data-mode="list" style="max-width:900px;"><!--커스텀 최대 너비-->
+                  <section class="flex flex-col items-center px-5 lg:px-0 lg:w-idx mx-auto" data-mode="list" style="max-width:900px;"><!--커스텀 최대 너비-->
                     <h1 class="text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20">[##_cover_title_##]</h1>
                     <div class="list">
                       <s_cover_item>
@@ -112,7 +112,7 @@
                   </section>
                 </s_cover>
                 <s_cover name="grid">
-                  <section class="flex flex-col items-center px-5 lg:px-0 lg:w-idx lg:mx-auto" data-mode="grid" style="max-width:900px;"><!--커스텀 최대 너비-->
+                  <section class="flex flex-col items-center px-5 lg:px-0 lg:w-idx lg:mx-auto" data-mode="grid"><!--커스텀 최대 너비-->
                     <h1 class="text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20">[##_cover_title_##]</h1>
                     <div class="list">
                       <s_cover_item>
@@ -273,11 +273,11 @@
 <!-- 커스텀 헤더 2 -->
                 <header class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16">
                   <s_article_rep_thumbnail>
-                    <div class='thumbnail absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="https://images.unsplash.com/photo-1660490987070-b7cc89e41b38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt=""></div>
+                    <div class='header-cover thumbnail absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/30 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="./images/headercover.jpg" alt=""></div>
                   </s_article_rep_thumbnail>
                   <div class="description flex flex-col items-center gap-y-2 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0 mt-8">
                     <h1 class="text-center font-bold text-2xl lg:text-3xl">[##_article_rep_title_##]</h1>
-                    <div class="flex gap-x-2 text-xs"><time>[##_article_rep_simple_date_##]</time> | <a href="[##_article_rep_category_link_##]" id="post-head-category">[##_article_rep_category_##]</a></div>
+                    <div class="flex gap-x-2 text-xs"><time>[##_article_rep_simple_date_##]</time> | <a href="[##_article_rep_category_link_##]" class="category-getter">[##_article_rep_category_##]</a></div>
                   </div>
                 </header>
 
@@ -570,13 +570,20 @@
               <header class="h-64 mb-10 flex justify-center items-center">
                 <s_list_image>
 <!-- 첫페이지 전체글 헤더 커스텀 이미지 -->
-                  <div class='thumbnail absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="https://images.unsplash.com/photo-1660490987070-b7cc89e41b38?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1000&q=80" alt=""></div>
+        <div class="w-full box-border px-5 h-14 top-0 fixed flex justify-between items-center z-20 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5  <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>">
+          <div></div>
+          <div>
+            <div class="m-0 text-sm font-bold h-5 text-overflow-hidden max-w-[calc(80vw-152px)] text-h-800 dark:text-h-200">[##_page_title_##]</div>
+          </div>
+          <div></div>
+        </div>
+                <div class='header-cover thumbnail absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/30 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="./images/headercover.jpg" alt=""></div>
                 </s_list_image>
                 <div class="description flex flex-col items-center z-20 relative mx-4 text-center text-h-800 dark:text-h-200 lg:mx-0 mt-8">
-                  <h1 class="font-bold text-2xl lg:text-3xl">[##_list_conform_##]</h1><span class="font-bold mt-3 empty:mt-0">[##_list_description_##]</span>
+                  <h1 class="font-bold text-2xl lg:text-3xl category-getter">[##_list_conform_##]</h1><span class="font-bold mt-3 empty:mt-0">[##_list_description_##]</span>
                 </div>
               </header>
-
+<!-- 여기까지 -->
               <div class="list px-5 lg:px-0 lg:w-idx lg:mx-auto" style="max-width:900px;" x-ref="list"> <!-- 커스텀 글목록 너비 max-width -->
                 <s_list_rep>
                   <div class="post">
@@ -749,13 +756,20 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
             <div class="fixed top-0 left-0 w-screen h-screen bg-h-900/50 backdrop-blur z-30 duration-200" x-show="sidebar" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="sidebar = false"></div>
           </template>
         </aside>
-        <div class="w-full box-border px-5 h-14 top-0 fixed flex justify-between items-center z-30 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+<!-- 커스텀 nav-->
+        <div class="w-full box-border px-5 h-14 top-0 fixed flex justify-between items-center z-30 xl:px-5 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>">
           <div><img class="lazyload rounded-full w-9 h-9 cursor-pointer <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>" @click="sidebar = ! sidebar" data-src="[##_image_##]" data-sizes="auto" alt="[##_blogger_##]" width="36" height="36"></div>
+          <div></div>
+          <div><button class="subscription flex justify-center items-center w-10 h-10 outline-0 rounded-full bg-h-200 text-h-500 hover:bg-h-300 dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600 btn_menu_toolbar btn_subscription #subscribe"  onclick="location.href='[##_blog_link_##]'"><i class="fa-solid fa-house font-bold text-sm"></i></button></div>
+        </div>
+        <div class="w-full box-border px-5 h-14 top-0 fixed flex justify-between items-center z-20 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5  <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+          <div></div>
           <div>
             <div class="m-0 text-sm font-bold h-5 text-overflow-hidden max-w-[calc(80vw-152px)] text-h-800 dark:text-h-200">[##_page_title_##]</div>
           </div>
-          <div><button class="subscription flex justify-center items-center w-10 h-10 outline-0 rounded-full bg-h-200 text-h-500 hover:bg-h-300 dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600 btn_menu_toolbar btn_subscription #subscribe" :data-blog-id="T.config.BLOG.id" :data-url="TistoryBlog.tistoryUrl"><span class="text-hidden">구독하기</span><i class="fa-solid fa-star font-bold text-sm"></i></button></div>
+          <div></div>
         </div>
+<!-- 커스텀 nav 끝 -->
         <div class="flex justify-end px-5 w-full box-border fixed text-sm z-30 bottom-3 xl:bottom-4 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" id="bottom">
           <div class="flex gap-x-3"><button x-data="theme" @click="toggle"><span class="text-hidden">테마</span><i class="fa-solid fa-moon text-base"></i></button><a href="#hELLO"><span class="text-hidden">상단으로</span><i class="fa-solid fa-chevron-up text-base"></i></a></div>
         </div>
@@ -768,24 +782,17 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
     });
 // 커스텀 현재 카테고리 펴기
     const cateLists = document.querySelectorAll(".sub_category_list");
-    const currentPageUrl = window.location.href;
+    const currentPageCate = document.querySelector(".category-getter").textContent; 
 
     window.addEventListener('load', function() {
       function cateHandler(category) {
-        const currentCateUrl = category.parentNode.childNodes[1].getAttribute("href");
-        const descriptionUrl = document.querySelector(".description a").getAttribute("href");
-        if(currentPageUrl.includes(currentCateUrl)){
+        const cateText = category.parentNode.childNodes[1].childNodes[0].textContent.trim();
+        if(currentPageCate.includes(cateText)){
           category.parentNode.firstChild.click();
         }
       }
       cateLists.forEach(cateHandler);
     });
-// 커스텀 지정 카테고리만 펴기
-    // window.addEventListener('load', function() {
-    //   if (currentPageUrl.includes(cateLists[0].parentNode.childNodes[1].getAttribute("href")) === false){
-    //     cateLists[0].parentNode.firstChild.click();
-    //     }
-    // });
   </script>
   </body>
 </html>
