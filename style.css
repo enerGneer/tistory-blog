@@ -10,6 +10,12 @@
   width: 5rem !important;
 }
 
+/* 커스텀 비 로그인 댓글 프로필 이미지 일괄 수정 */
+[src*=profile_default],
+[style*=profile_default] {
+	content: url("./images/comment.jpg");
+}
+
 *,
 ::before,
 ::after {
@@ -27,7 +33,6 @@
 ::after {
   --tw-content: '';
 }
-
 
 /* 커스텀 calendar 시작*/
 .calendar {  width: 16rem !important;}
@@ -66,6 +71,11 @@
 /* 커스텀 카테고리 컬러 */
 .text-cate-color {
   color: #85bdac;
+}
+
+/* 커스텀 bg 컬러 */
+.bg-custom-color {
+  background-color: rgb(133, 189, 172);
 }
 
 /*
@@ -1274,8 +1284,8 @@ video {
 }
 
 .bg-h-100\/50 {
-  background-color: rgb(255 255 255 / 0.5);
-}
+  background-color: rgb(255 255 255 / 0.8);
+} /* 0.5에서 0.8로 커스텀 */
 
 .bg-h-300 {
   --tw-bg-opacity: 1;
@@ -1759,6 +1769,12 @@ button {
   background-color: rgb(0 0 0 / 0.5);
 }
 
+/* 커스텀 bg cover */
+.before\:bg-h-900\/30::before {
+  content: var(--tw-content);
+  background-color: rgb(0 0 0 / 0.2);
+}
+
 .before\:bg-h-300::before {
   content: var(--tw-content);
   --tw-bg-opacity: 1;
@@ -2110,8 +2126,8 @@ button {
     width: var(--h-width);
   }
 
-  .lg\:w-\[calc\(theme\(spacing\.96\)\+theme\(spacing\.16\)\)\] {
-    width: calc(24rem + 4rem);
+  .lg\:w-\[calc\(theme\(spacing\.96\)\+theme\(spacing\.20\)\+theme\(spacing\.3\)\)\] {
+    width: calc(24rem + 5rem + 0.75rem);
   }
 
   .lg\:w-32 {
@@ -2575,8 +2591,8 @@ button {
 #content .contents_style table[data-ke-align] a,
 #content .contents_style blockquote[data-ke-style=style2] a,
 #content .contents_style blockquote[data-ke-style=style3] a {
-
-  display: inline-block;
+/* 커스텀 a의 인라인 블록 없애기 */
+  /* display: inline-block; */
 
   --tw-text-opacity: 1;
 
@@ -2950,6 +2966,16 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
   --tw-bg-opacity: 1;
 
   background-color: rgb(41 42 45 / var(--tw-bg-opacity))
+}
+
+#content .contents_style figure.fileblock .filename {
+
+  margin-top: 0.75rem
+}
+
+#content .contents_style figure.fileblock .filename .name {
+
+  height: auto
 }
 
 .dark #content .contents_style figure.fileblock .filename,
@@ -3734,13 +3760,15 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
 @media (min-width: 768px) {
   [data-mode=grid] .list {
     grid-template-columns: repeat(2, minmax(0, 1fr));
+    margin: auto !important;
   }
 }
 
 @media (min-width: 1100px) {
   [data-mode=grid] .list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    /* 커스텀 3에서 2로 조절 */
+    gap: 2.5rem;
+    /* 커스텀 갭3에서 2로 조절 */
   }
 }
 
@@ -3763,18 +3791,6 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
     padding: 1.5rem;
     border-radius: 0px 0px 10px 10px;
   }
-
-
-/* 커스텀 그리드 모바일 화면 썸네일 제거 */
-@media (max-width: 767px) {
-  [data-mode=grid] .post .description {
-    /* border-radius: 10px; */
-  }
-  [data-mode=grid] .post .thumbnail img {
-    /* display: none; */
-  }
-}
-/* 커스텀 끝 */
 
 [data-mode=grid] .post .thumbnail img {
   height: 14rem;
