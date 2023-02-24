@@ -340,13 +340,13 @@
                       <s_tag_label>
                         <div class="mt-2 flex flex-wrap gap-x-1.5 text-[0]" id="tags">[##_tag_label_rep_##]</div>
                       </s_tag_label>
-<!--                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
+                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
                         <div class="flex flex-col gap-y-1">
                           <div class="text-h-800 dark:text-h-200 font-bold">[##_blogger_##]</div>
                           <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
                         </div>
                       </div>
--->                    </footer>
+                    </footer>
                   </div>
                 </div>
                 <s_rp>
@@ -570,13 +570,12 @@
               <header class="h-64 mb-10 flex justify-center items-center">
                 <s_list_image>
 <!-- 첫페이지 전체글 헤더 커스텀 이미지 -->
-        <div class="w-full box-border px-5 h-14 top-0 fixed flex justify-between items-center z-20 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5  <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>">
-          <div></div>
-          <div>
-            <div class="m-0 text-sm font-bold h-5 text-overflow-hidden max-w-[calc(80vw-152px)] text-h-800 dark:text-h-200">[##_page_title_##]</div>
-          </div>
-          <div></div>
+        <div class="w-full box-border px-5 h-14 top-0 fixed flex justify-between items-center z-30 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5  <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>">
+          <div><img class="lazyload rounded-full w-9 h-9 cursor-pointer <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>" @click="sidebar = ! sidebar" data-src="[##_image_##]" data-sizes="auto" alt="[##_blogger_##]" width="36" height="36"></div>
+            <div class="m-0 text-sm font-bold h-5 text-overflow-hidden max-w-[calc(80vw-152px)] text-h-800 dark:text-h-200"><a href="#" roll="button" data-func="go-to-top">[##_page_title_##]</a></div>
+          <div><button class="subscription flex justify-center items-center w-10 h-10 outline-0 rounded-full bg-h-200 text-h-500 hover:bg-h-300 dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600 btn_menu_toolbar btn_subscription #subscribe"  onclick="location.href='[##_blog_link_##]'"><i class="fa-solid fa-house font-bold text-sm"></i></button></div>
         </div>
+
                 <div class='header-cover thumbnail absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/30 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="./images/headercover.jpg" alt=""></div>
                 </s_list_image>
                 <div class="description flex flex-col items-center z-20 relative mx-4 text-center text-h-800 dark:text-h-200 lg:mx-0 mt-8">
@@ -757,21 +756,21 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
           </template>
         </aside>
 <!-- 커스텀 nav-->
+<nav id="navmain">
         <div class="w-full box-border px-5 h-14 top-0 fixed flex justify-between items-center z-30 xl:px-5 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>">
           <div><img class="lazyload rounded-full w-9 h-9 cursor-pointer <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>" @click="sidebar = ! sidebar" data-src="[##_image_##]" data-sizes="auto" alt="[##_blogger_##]" width="36" height="36"></div>
-          <div></div>
+          <div>
+            <div class="m-0 text-sm font-bold h-5 text-overflow-hidden max-w-[calc(80vw-152px)] text-h-800 dark:text-h-200" x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"><a href="#" roll="button" data-func="go-to-top">[##_page_title_##]</a></div>
+          </div>
           <div><button class="subscription flex justify-center items-center w-10 h-10 outline-0 rounded-full bg-h-200 text-h-500 hover:bg-h-300 dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600 btn_menu_toolbar btn_subscription #subscribe"  onclick="location.href='[##_blog_link_##]'"><i class="fa-solid fa-house font-bold text-sm"></i></button></div>
         </div>
-        <div class="w-full box-border px-5 h-14 top-0 fixed flex justify-between items-center z-20 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5  <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-          <div></div>
-          <div>
-            <div class="m-0 text-sm font-bold h-5 text-overflow-hidden max-w-[calc(80vw-152px)] text-h-800 dark:text-h-200">[##_page_title_##]</div>
-          </div>
-          <div></div>
+
+        <div class="w-full box-border px-5 h-14 top-0 fixed flex justify-between items-center z-10 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5  <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
         </div>
+</nav>
 <!-- 커스텀 nav 끝 -->
-        <div class="flex justify-end px-5 w-full box-border fixed text-sm z-30 bottom-3 xl:bottom-4 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" id="bottom">
-          <div class="flex gap-x-3"><button x-data="theme" @click="toggle"><span class="text-hidden">테마</span><i class="fa-solid fa-moon text-base"></i></button><a href="#hELLO"><span class="text-hidden">상단으로</span><i class="fa-solid fa-chevron-up text-base"></i></a></div>
+        <div class="flex justify-end px-5 w-full box-border fixed text-sm z-10 bottom-3 xl:bottom-4 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" id="bottom">
+          <div class="flex gap-x-3"><button x-data="theme" @click="toggle"><span class="text-hidden">테마</span><i class="fa-solid fa-moon text-base"></i></button><a href="#"><span class="text-hidden">상단으로</span><i class="fa-solid fa-chevron-up text-base"></i></a></div>
         </div>
       </div>
     </s_t3>
@@ -793,6 +792,10 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
       }
       cateLists.forEach(cateHandler);
     });
+// 메인에서만 nav 안 보이게 하기
+  if ( window.location.pathname == '/' ) {
+    document.write( '<style>#navmain{display:none !important;}</style>' );
+  }
   </script>
   </body>
 </html>
