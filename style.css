@@ -6,10 +6,6 @@
 2. Allow adding a border to an element by just adding a border-width. (https://github.com/tailwindcss/tailwindcss/pull/116)
 */
 
-#content .container_postbtn .postbtn_like .wrap_btn[id^=reaction-] button {
-  width: 5rem !important;
-}
-
 /* 커스텀 비 로그인 댓글 프로필 이미지 일괄 수정 */
 [src*=profile_default],
 [style*=profile_default] {
@@ -33,40 +29,6 @@
 ::after {
   --tw-content: '';
 }
-
-/* 커스텀 calendar 시작*/
-.calendar {  width: 16rem !important;}
-.calendar .tt-calendar {width:100% !important;border-collapse:collapse;margin: 0 auto;}
-.calendar .tt-calendar caption { margin-bottom: 10px; }
-.calendar .tt-calendar caption a:first-child, .calendar .tt-calendar caption a:last-child 
-{font-size:0.7em !important; }
-.calendar .tt-calendar caption a {vertical-align:middle;}
-.calendar .tt-calendar th, .calendar .tt-calendar td {padding:5px 0;text-align:center;}
-.calendar .tt-calendar th {font-size: 0.9em !important;font-weight:600;}
-.calendar .tt-calendar td {font-size:0.8em !important;}
-.calendar .tt-calendar .cal_current_week {}
-.calendar .tt-calendar .cal_week2, .calendar .tt-calendar .cal_day_sunday {}
-.calendar .tt-calendar td a {
-  display:inline-block;background: #C5E1A5;color: #C5E1A5  !important;
-  border-radius: 100%;width: 20px;height: 20px;line-height: 20px; font-size:1em !important;}
-.calendar .tt-calendar .cal_day4 {color: #85bdac;}
-.calendar .tt-calendar .cal_day4 a {background: #85bdac;color:#85bdac !important; font-size:1em !important;}
-.cal_month .PrevMonthBtn::before,
-.cal_month .NextMonthBtn::before,
-.cal_month .Month {
-  font-weight: 600;
-  font-size: 0.9rem;
-  margin: 3px;
-}
-.cal_month .PrevMonthBtn::before {
-  content: '\f104';
-  font-family: 'Font Awesome 5 Free';
-}
-.cal_month .NextMonthBtn::before {
-  content: '\f105';
-  font-family: 'Font Awesome 5 Free';
-}
-/*  끝*/
 
 /* 커스텀 카테고리 컬러 */
 .text-cate-color {
@@ -1695,6 +1657,13 @@ video {
   font-weight: 700;
 }
 
+.fa-house {
+  --tw-content: '\e0b7';
+  content: var(--tw-content);
+  font-family: 'Font Awesome 6 Free';
+  font-weight: 700;
+}
+
 .menu_toolbar {
   display: none;
 }
@@ -2157,8 +2126,7 @@ button {
   }
 
   .lg\:text-3xl {
-    font-size: 1.75rem;
-    /* font-size: 1.875rem; */
+    font-size: 1.875rem;
     line-height: 2.25rem;
   }
 
