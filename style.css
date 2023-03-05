@@ -30,9 +30,42 @@
   --tw-content: '';
 }
 
+.list-des {
+  height: 3.5rem; 
+  display: -webkit-box;
+  -webkit-line-clamp: 2;
+  -webkit-box-orient: vertical;
+  text-overflow: ellipsis; 
+  overflow: hidden;
+}
+
 /* 커스텀 카테고리 컬러 */
 .text-cate-color {
-  color: #85bdac;
+  color: rgb(133, 189, 172);
+}
+
+/* 커스텀 글 본문 헤더 상세 */
+.header-des::before {
+    content: "";
+    margin-right: 0.5rem;
+    border-right-width: 1px;
+    border-right-style: solid;
+    opacity: .2;
+}
+
+/* 커스텀 헤더 썸네일 */
+div.header-thumbnail{
+    width: 130px;
+    height: 130px; 
+    border-radius: 999px;
+    overflow: hidden;
+    box-shadow: 2px 2px 20px rgb(0 0 0 / 8%), 2px 2px 10px rgb(0 0 0 / 4%);
+}
+
+img.header-thumbnail {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
 }
 
 /* 커스텀 bg 컬러 */
@@ -708,6 +741,11 @@ video {
   margin-bottom: 1rem;
 }
 
+/* 마진 바텀 커스텀 추가 */
+.mb-20 {
+  margin-bottom: 5rem;
+}
+
 .mt-20 {
   margin-top: 5rem;
 }
@@ -842,6 +880,11 @@ video {
 
 .h-64 {
   height: 16rem;
+}
+
+/* 커스텀 높이 - 카테고리 헤더 */
+.h-cateheader {
+  height: 12rem;
 }
 
 .h-12 {
@@ -1221,6 +1264,12 @@ video {
   border-bottom-color: rgb(230 230 233 / var(--tw-border-opacity));
 }
 
+/* 커스텀 boder 색 추가 */
+.border-b-h-400 {
+  --tw-border-opacity: 1;
+  border-bottom-color: rgb(203 203 208 / var(--tw-border-opacity));
+}
+
 .bg-h-100 {
   --tw-bg-opacity: 1;
   background-color: rgb(255 255 255 / var(--tw-bg-opacity));
@@ -1373,6 +1422,9 @@ video {
 /* 커스텀 추가 */
 .pt-1 {
   padding-top: 0.25rem;
+}
+.pt-2 {
+  padding-top: 0.5rem;
 }
 /* 커스텀 추가 끝 */
 
@@ -2123,6 +2175,12 @@ button {
   .lg\:px-0 {
     padding-left: 0px;
     padding-right: 0px;
+  }
+
+  /* 텍스트 사이즈 추가 */
+  .lg\:text-4xl {
+    font-size: 2.1rem;
+    line-height: 3rem;
   }
 
   .lg\:text-3xl {
@@ -3735,7 +3793,7 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
 @media (min-width: 1100px) {
   [data-mode=grid] .list {
     grid-template-columns: repeat(3, minmax(0, 1fr));
-    gap: 2.5rem;
+    gap: 2rem;
     /* 커스텀 갭3에서 2로 조절 */
   }
 }
@@ -3744,28 +3802,33 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
   display: flex;
   flex-direction: column;
   /* row-gap: 1rem; */
+  border-radius: 10px;
+  box-shadow: 2px 2px 20px rgb(0 0 0 / 4%), 2px 2px 10px rgb(0 0 0 / 4%), 1px 1px 3px rgb(0 0 0 / 1%);
+  overflow: hidden;
+  /* 커스텀 그리드 리스트 이미지 둥글게 */
 }
 
   [data-mode=grid] .post .description {
     --tw-bg-opacity: 1;
-    background-color: rgb(244 244 246 / var(--tw-bg-opacity));
-    padding: 1.5rem;
-    border-radius: 0px 0px 10px 10px;
+    /* background-color: rgb(244 244 246 / var(--tw-bg-opacity)); */
+    padding: 1.1rem;
+  /* padding 커스텀 원래 1.5 */
+  }
+  
+  .dark [data-mode=grid] .post{
+    --tw-bg-opacity: 1;
+    background-color: rgb(41 42 45 / var(--tw-bg-opacity));
   }
 
   .dark [data-mode=grid] .post .description {
-    --tw-bg-opacity: 1;
-    background-color: rgb(41 42 45 / var(--tw-bg-opacity));
-    padding: 1.5rem;
-    border-radius: 0px 0px 10px 10px;
+    /* --tw-bg-opacity: 1; */
+    /* background-color: rgb(41 42 45 / var(--tw-bg-opacity)); */
   }
 
 [data-mode=grid] .post .thumbnail img {
   height: 14rem;
   /* 커스텀 이미지 높이 */
   width: 100%;
-    border-radius: 10px 10px 0px 0px;
-  /* 커스텀 그리드 리스트 이미지 둥글게 */
 }
 
 [data-mode=grid] .post .description .category {
