@@ -605,7 +605,7 @@
                   <div class="flex flex-row items-center my-4">
                     <img class="rounded-full mx-4" src="[##_image_##]" width="60" height="60" alt="[##_blogger_##]">
                     <div class="flex flex-col">
-                      <div><a class="link_tit inline-block font-bold text-lg" href="[##_blog_link_##]">𝒆𝒏𝒆𝒓𝗚𝐧𝐞𝐞𝐫</a></div>
+                      <div><a class="link_tit inline-block font-bold" href="[##_blog_link_##]">𝒆𝒏𝒆𝒓𝗚𝐧𝐞𝐞𝐫</a></div>
                       <div class="text-h-400 text-sm font-bold">[##_blogger_##]⚡</div>
                     </div>
                   </div>
@@ -647,9 +647,9 @@
                 </div>
               </s_sidebar_element>
               <s_sidebar_element><!-- 카테고리-->
-            <div class="border-t border-h-300 my-4">
-              <!-- 라인 커스텀 -->
-            </div>
+                <div class="border-t border-h-300 my-4">
+                  <!-- 라인 커스텀 -->
+                </div>
                 <div class="sidebar-element">
                   <div id="category" x-data="category">[##_category_list_##]</div>
                 </div>
@@ -818,5 +818,20 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
       }
     });
 </script>
+<script>
+// 상위 카테고리 링크 제거하고 펼치기 버튼으로 변경하기
+    const cateTitles = document.querySelector(".category_list").children;
+    window.addEventListener('load', function() {
+      function cateTitleHandler(category) {
+        const cateTitleText = category.children[1];
+        if (cateTitleText !== undefined) {
+          cateTitleText.removeAttribute('href');
+          cateTitleText.setAttribute('x-on:click', 'open = ! open');
+          cateTitleText.setAttribute(':class', '{ "duration-200": open }');
+        }
+      }
+      cateTitles.forEach(cateTitleHandler);
+    });
+  </script>
   </body>
 </html>
