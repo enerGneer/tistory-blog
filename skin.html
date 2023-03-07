@@ -262,14 +262,14 @@
                 <header class="mt-20 mb-20 flex flex-col justify-end px-5 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
                   <div class="description text-h-800 dark:text-h-200 lg:mx-0">
                   <s_article_rep_thumbnail>
-                  <div class="mb-6 header-thumbnail"><img class="header-thumbnail" src="[##_article_rep_thumbnail_url_##]" width="140" height="140" alt="[##_blogger_##]"></div>
+                  <div class="mb-6 header-thumbnail"><img class="header-thumbnail" src="[##_article_rep_thumbnail_url_##]" width="140" height="140"></div>
                   </s_article_rep_thumbnail>
                     <h1 class="font-extrabold mt-2 text-3xl lg:text-4xl">[##_article_rep_title_##]</h1>
                     <div class="flex gap-x-2 mt-2 text-sm flex-wrap text-h-500 dark:text-h-200 font-medium">
-                    <a class="mt-2 category-getter" href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
+                    <a class="mt-2 category-getter header-des-cate" href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
                     <time class="mt-2 header-des">[##_article_rep_simple_date_##]</time>
-                    <span class="admin flex gap-x-2 text-sm mt-2">
-                        <s_ad_div><a class="header-des" href="[##_s_ad_m_link_##]">수정</a><a href="#" onclick="[##_s_ad_d_onclick_##]">삭제</a><a href="#" onclick="[##_s_ad_s2_onclick_##]">[##_s_ad_s1_label_##]</a></s_ad_div>
+                    <span class="admin flex gap-x-2 text-sm mt-2 header-des-a">
+                        <s_ad_div><a href="[##_s_ad_m_link_##]">수정</a><a href="#" onclick="[##_s_ad_d_onclick_##]">삭제</a><a href="#" onclick="[##_s_ad_s2_onclick_##]">[##_s_ad_s1_label_##]</a></s_ad_div>
                       </span></div>
                   </div>
                 </header>
@@ -333,9 +333,9 @@
                       <s_tag_label>
                         <div class="mt-2 flex flex-wrap gap-x-1.5 text-[0]" id="tags">[##_tag_label_rep_##]</div>
                       </s_tag_label>
-                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
+                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><button style="min-width:5rem;" onclick="location.href='[##_blog_link_##]'" alt="첫 페이지로 이동"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]"></button>
                         <div class="flex flex-col gap-y-1">
-                          <div class="text-h-800 dark:text-h-200 font-bold">𝒆𝒏𝒆𝒓𝗚</div>
+                          <div class="text-h-800 dark:text-h-200 font-bold"><a href="[##_blog_link_##]" class="blogger-text" alt="첫 화면으로">𝒆𝒏𝒆𝒓𝗚</a></div>
                           <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
                         </div>
                       </div>
@@ -532,7 +532,7 @@
                     <footer class="mt-4" x-show="shown">
                       <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
                         <div class="flex flex-col gap-y-1">
-                          <div class="text-h-800 dark:text-h-200 font-bold">[##_blogger_##]</div>
+                          <div class="text-h-800 dark:text-h-200 font-bold blogger-text">[##_blogger_##]</div>
                           <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
                         </div>
                       </div>
@@ -603,10 +603,10 @@
               <s_sidebar_element>
                 <div class="sidebar-element"><!-- 프로필 -->
                   <div class="flex flex-row items-center my-4">
-                    <img class="rounded-full mx-4" src="[##_image_##]" width="60" height="60" alt="[##_blogger_##]">
+                    <a href="[##_blog_link_##]" alt="첫 화면으로"><img class="rounded-full mx-4" src="[##_image_##]" width="60" height="60" alt="[##_blogger_##]"></a>
                     <div class="flex flex-col">
-                      <div><a class="link_tit inline-block font-bold" href="[##_blog_link_##]">𝒆𝒏𝒆𝒓𝗚𝐧𝐞𝐞𝐫</a></div>
-                      <div class="text-h-400 text-sm font-bold">[##_blogger_##]⚡</div>
+                      <div><a class="link_tit inline-block font-bold blogger-text" href="[##_blog_link_##]">𝒆𝒏𝒆𝒓𝗚𝐧𝐞𝐞𝐫⚡</a></div>
+<!--                      <div class="text-h-400 text-sm font-bold">[##_blogger_##]</div>-->
                     </div>
                   </div>
                 </div>
@@ -647,7 +647,7 @@
                 </div>
               </s_sidebar_element>
               <s_sidebar_element><!-- 카테고리-->
-                <div class="border-t border-h-300 my-4">
+                <div class="border-b border-h-300 my-4 dark:border-h-100/20">
                   <!-- 라인 커스텀 -->
                 </div>
                 <div class="sidebar-element">
@@ -739,7 +739,7 @@
                 </div>
               </s_sidebar_element>
             </s_sidebar>
-            <div class="border-t border-h-300 my-4">
+            <div class="border-b border-h-300 my-4 dark:border-h-100/20">
               <!-- 라인 커스텀 -->
             </div>
             <div class="sidebar-element">
@@ -753,7 +753,7 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
 <!-- 커스텀 nav-->
 <nav id="navmain">
         <div class="w-full box-border px-3 h-14 top-0 fixed flex justify-between items-center z-30 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>">
-          <div><button class="flex justify-center items-center w-10 h-10 outline-0 rounded-full text-h-500 hover:bg-h-300 dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600 btn_menu_toolbar <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>"  @click="sidebar = ! sidebar">
+          <div><button class="flex justify-center items-center w-10 h-10 outline-0 rounded-full text-h-500 bg-h-100/50 hover:bg-h-300 dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600 btn_menu_toolbar <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>"  @click="sidebar = ! sidebar">
             <i class="fa-solid fa-bars font-bold text-sm"></i></button></div>
           <div x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
             <div class="m-0 text-sm font-bold h-5 text-overflow-hidden max-w-[calc(80vw-152px)] text-h-800 dark:text-h-200"><a href="#" roll="button" data-func="go-to-top">[##_page_title_##]</a></div>
@@ -787,9 +787,19 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
       </div>
     </s_t3>
 <script>
+// 카테고리 글 숫자의 괄호 변경
+  const cateCount = document.querySelectorAll('#category .c_cnt');
+  for (i = 0; i < cateCount.length; i++) {
+    let pattern = /[()]/gi;
+    let str = cateCount[i].innerHTML;
+    let n = str.replace(pattern, '');
+    cateCount[i].innerHTML = n;
+  }
+</script>
+<script>
 // 커스텀 리스트 카테고리명
     const cateBadgeTitle = document.querySelectorAll(".description-cate");
-    window.addEventListener('load', function() {
+    window.addEventListener('DOMContentLoaded', function() {
       function cateBadgeHandler(catebadge){
         const cateBadgeText = catebadge.textContent;
         if(cateBadgeText.includes('/')){
@@ -798,13 +808,28 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
       }
       cateBadgeTitle.forEach(cateBadgeHandler);
     });
+</script>
+<script>
+// 상위 카테고리 링크 제거하고 펼치기 버튼으로 변경하기
+    const cateTitles = document.querySelector(".category_list").children;
+    window.addEventListener('DOMContentLoaded', function() {
+      function cateTitleHandler(category) {
+        const cateTitleText = category.children[1];
+        if (cateTitleText !== undefined) {
+          cateTitleText.removeAttribute('href');
+          cateTitleText.setAttribute('x-on:click', 'open = ! open');
+          cateTitleText.setAttribute(':class', '{ "duration-200": open }');
+        }
+      }
+      cateTitles.forEach(cateTitleHandler);
+    });
   </script>
-  <script>
+<script>
 // 커스텀 현재 카테고리 펴기
     const cateLists = document.querySelectorAll(".sub_category_list");
     const currentPageCate = document.querySelector(".category-getter").textContent; 
 
-    window.addEventListener('load', function() {
+    window.addEventListener('DOMContentLoaded', function() {
       function cateHandler(category) {
         const cateText = category.parentNode.childNodes[1].childNodes[0].textContent.trim();
         if(currentPageCate.includes(cateText)){
@@ -818,20 +843,5 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
       }
     });
 </script>
-<script>
-// 상위 카테고리 링크 제거하고 펼치기 버튼으로 변경하기
-    const cateTitles = document.querySelector(".category_list").children;
-    window.addEventListener('load', function() {
-      function cateTitleHandler(category) {
-        const cateTitleText = category.children[1];
-        if (cateTitleText !== undefined) {
-          cateTitleText.removeAttribute('href');
-          cateTitleText.setAttribute('x-on:click', 'open = ! open');
-          cateTitleText.setAttribute(':class', '{ "duration-200": open }');
-        }
-      }
-      cateTitles.forEach(cateTitleHandler);
-    });
-  </script>
   </body>
 </html>
