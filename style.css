@@ -30,6 +30,104 @@
   --tw-content: '';
 }
 
+/* TOC 스타일 커스텀 */
+
+.toc-list {
+    padding: 0.5rem;
+    border-radius: 99px;
+    color: rgb(255 255 255);
+    background-color: rgb(102 102 110 / 0.12);
+    margin-right: 0.5rem;
+}
+
+.toc-title{
+  position: relative;
+  margin-left: 1.5rem;
+}
+.toc-title::before {
+    position: absolute;
+    margin-left: -1rem;
+    font-size: 0.875rem;
+    line-height: inherit;
+    --tw-content: '\f0d7';
+    color: rgb(102 102 110 / 0.15);
+    content: var(--tw-content);
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    transition: color 0.2s;
+}
+
+.toc-title:hover::before {
+    color: rgba(109, 194, 184, 1);
+} 
+
+/* 이전 글 다음 글 커스텀 */
+.article-arrow, .article-home {
+  font-size: 1.5rem;
+  margin: 1rem;
+  color: rgb(96, 175, 209, 0.8);
+  font-weight: 900; 
+}
+
+.article-arrow {
+  color: rgb(126, 169, 230, 0.9);
+}
+
+/* 관련글 커스텀 */
+.related-cate {
+  background: #80D0C7;
+  background: linear-gradient(to right, #80D0C7 0%, #7E92EB 100%);
+  font-weight: 700;
+  background-color: rgb(153 153 161 / 0.8);
+  padding: 0.875rem 1.25rem;
+  border-radius: 999px;
+  color: #fff;
+  /* color: rgb(53 54 56 / 0.9);
+  box-shadow: 0 0 0 1px rgb(53 54 56 / 0.7) inset;  */
+  transition: background 0.2s;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.related-cate:hover {
+  /* background: #80D0C7;
+  background: linear-gradient(to right, #80D0C7 0%, #7E92EB 100%);
+  box-shadow: none;
+  border: 0px;
+  color:rgb(255 255 255 / 1); */
+  background: rgb(102 102 110 / 0.4);
+}
+
+.related .description {
+  padding: .5rem;
+}
+
+.related-icon {
+  /* color:#7eb1eb; */
+  font-size: 2.5rem;
+  color: rgb(153 153 161 / 0.25);
+}
+
+.related img {
+  height:5rem !important;
+}
+
+@media not all and (min-width: 768px) {
+  .related-cate span:nth-last-child(1) {
+    display: none;
+  }
+  .related img {
+  height: 10rem !important;
+  }
+}
+
+@media (min-width: 1100px) {
+  .related img {
+  height: 10rem !important;
+  }
+}
+
 /* 커스텀 리스트 카테고리 */
 .description-cate {
     margin-top: 1rem;
@@ -37,24 +135,28 @@
     position: absolute;
     overflow: hidden;
     z-index: 1;
-    background-color: rgb(240 240 240 /90%);
-    font-weight: 600;
-    backdrop-filter: blur(10px);
+    background-color: rgb(102 102 110 / 0.4);
+    font-weight: 500;
+    backdrop-filter: blur(1rem);
     padding: 0.2rem 0.7rem;
     border-radius: 99px;
-    color: rgb(0 0 0 /30%);
+    color: rgb(255 255 255 /100%);
     /* transition: background-color 0.3s !important; */
 }
 
 .description-cate:hover {
-    background-image: linear-gradient(90deg, #d6a7f1 0%, #85b7f1 50%, #6fdad6 100%);
-    color: rgb(255 255 255);
+    /* background-image: linear-gradient(120deg, #d6a7f1 0%, #85b7f1 50%, #6fdad6 100%);
+     color: rgb(255 255 255 /1); */
+    background-color: rgb(240 240 243 /1);
+    /* color: rgb(102 102 130 / .9); */
+    color: rgb(111, 144, 201, 0.8);
+
 }
 
 /* 블로그명 텍스트 효과 추가 */
 .blogger-text {
-    background: #80D0C7;
-  background: linear-gradient(to right, #80D0C7 0%, #7E92EB 100%);
+    background: #7E92EB;
+  background: linear-gradient(to right, #7E92EB 40%, #cc99ee 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -62,24 +164,35 @@
 /* 커스텀 글 본문 헤더 상세 */
 .header-des::before, .header-des-a a::before {
     content: "";
-    margin-right: 0.5rem;
-    border-right-width: 1px;
-    border-right-style: solid;
-    opacity: .2;
+    /* margin-right: 1rem; */
+    /* border-right-width: 1px; */
+    /* border-right-style: solid; */
+    /* opacity: .2; */
+    position: absolute;
+    top: 0.25rem;
+    left: -0.75rem;
+    width: 1px;
+    height: 0.8rem;
+    --tw-bg-opacity: 0.5;
+    background-color: rgb(153 153 161 / var(--tw-bg-opacity));
+    /* transform: rotate(18deg); */
 }
 
 .header-des, .header-des-a a {
-    padding: 0.2rem;
+    margin-left: 1rem;
+    position: relative;
 }
 
 /* 커스텀 글 본문 헤더 상세의 카테고리 */
 .header-des-cate {
-    background-color: rgb(240 240 240 /90%);
-    font-weight: 600;
-    padding: 0.2rem 0.7rem;
+    background-color: rgb(153 153 161 / 0.15);
+    font-weight: 500;
+    padding: 0.25rem 0.875rem;
     border-radius: 99px;
-    color: rgb(0 0 0 /30%);
+    /* color: rgb(153 153 161 / 0.9); */
+    color: rgb(111, 144, 201, 0.8);
 }
+
 .header-des-cate:hover {
     background-image: linear-gradient(90deg, #d6a7f1 0%, #85b7f1 50%, #6fdad6 100%);
     color: rgb(255 255 255);
@@ -2211,6 +2324,11 @@ button {
     line-height: 3rem;
   }
 
+ .lg\:text-xl {
+  font-size: 1rem;
+  line-height: 1rem;
+}
+
   .lg\:text-3xl {
     font-size: 1.875rem;
     line-height: 2.25rem;
@@ -2466,15 +2584,19 @@ button {
   color: rgb(127 179 216 / var(--tw-text-opacity)); /*커스텀 링크*/
 }
 
+#content .contents_style p {
+  /* 커스터 단락 간격 */
+  margin-bottom: 1rem;
+}
 
 #content .contents_style h2,
 #content .contents_style h3,
 #content .contents_style h4 {
 
-  margin-top: 1.25rem;
+  /* margin-top: 1.25rem;
 
-  margin-bottom: 1.25rem;
-
+  margin-bottom: 1.25rem; */
+  
   scroll-margin-top: 5rem;
 
   font-weight: 700;
@@ -2501,39 +2623,47 @@ button {
 
 #content .contents_style h2 {
 
-  font-size: 1.25rem;
+  /* font-size: 1.25rem; */
+  font-size: 1.5rem;
 
   line-height: 1.75rem;
 
 /* 커스텀 h2 */
 --tw-border-opacity: 0.7;
   border-bottom : 1px solid rgb(230 230 233 / var(--tw-border-opacity)) !important;
-  padding-bottom : .25rem;
-  padding-top: 1em;
+  padding-bottom : .5rem;
+  margin-top: 3em;
+  margin-bottom: 1rem;
+
 }
 
 @media (min-width: 1100px) {
 
   #content .contents_style h2 {
 
-    font-size: 1.5rem; /* 커스텀 폰트 사이즈*/
+    font-size: 1.7rem; /* 커스텀 폰트 사이즈*/
 
-    line-height: 2rem
+    line-height: 2rem;
+
   }
 }
 
 #content .contents_style h3 {
 
-  font-size: 1.125rem;
+  /* font-size: 1.125rem; */
+  font-size:1.25rem;
 
-  line-height: 1.75rem
+  line-height: 1.75rem;
+  /* 커스텀 단락 간격 */
+  margin-top: 2em;
+  margin-bottom: 1rem;
 }
 
 @media (min-width: 1100px) {
 
   #content .contents_style h3 {
 
-    font-size: 1.3rem; /* 커스텀 사이즈 */
+    font-size: 1.5rem; /* 커스텀 사이즈 */
 
     line-height: 1.75rem
   }
@@ -2541,9 +2671,12 @@ button {
 
 #content .contents_style h4 {
 
-  font-size: 1rem;
+  font-size: 1.1rem;
 
-  line-height: 1.5rem
+  line-height: 1.5rem;
+  /* 커스텀 단락 간격 */
+  margin-top: 1.5em;
+  margin-bottom: 0.5rem;
 }
 
 @media (min-width: 1100px) {
@@ -2632,11 +2765,10 @@ button {
 #content .contents_style blockquote[data-ke-style=style3] a {
 /* 커스텀 a의 인라인 블록 없애기 */
 /* display: inline-block; */
-  --tw-text-opacity: 1;
-  color: rgb(126 146 235 / var(--tw-text-opacity));/*커스텀 링크색*/
-  text-decoration: none;
+/* 이 아래 다 커스텀 */
+  color: #68c4b9;
   background-image: 
-    linear-gradient(rgb(126, 146, 235, 0.4), rgb(126, 146, 235, 0.4)),
+    linear-gradient(rgb(126, 146, 235, 0), rgb(126, 146, 235, 0)),
     linear-gradient(to right, #80D0C7 0%, #7E92EB 100%);
   background-size: 100% 2px, 0 2px;
   background-position: 100% 100%, 0 100%;
@@ -2650,7 +2782,8 @@ button {
 #content .contents_style table[data-ke-align] a:hover,
 #content .contents_style blockquote[data-ke-style=style2] a:hover,
 #content .contents_style blockquote[data-ke-style=style3] a:hover{
-  /* color: rgb(128, 191, 208); */
+  color: rgb(126 146 235);
+/* 커스텀 링크색 */
   background-size: 0 2px, 100% 2px;
 }
 
@@ -3837,6 +3970,7 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
   border: solid 1px rgb(240 240 243 /80%);
   box-shadow: 0px 4px 25px rgb(0 0 0 / 4%), 0px 2px 6px rgb(0 0 0 / 3%);
   /* 커스텀 그리드 리스트 이미지 둥글게, 보더 */
+  transition: box-shadow 0.3s;
 }
 
 [data-mode=grid] .post:hover {
@@ -3845,6 +3979,7 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
 
   [data-mode=grid] .post .description {
     --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 /var(--tw-bg-opacity));
     /* background-color: rgb(244 244 246 / var(--tw-bg-opacity)); */
     padding: 1rem;
   /* padding 커스텀 원래 1.5 */
@@ -3868,7 +4003,7 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
 
   .dark [data-mode=grid] .post .description {
     --tw-bg-opacity: 1;
-    /* background-color: rgb(41 42 45 / var(--tw-bg-opacity)); */
+    background-color: rgb(41 42 45 / var(--tw-bg-opacity));
   }
 
 [data-mode=grid] .post .thumbnail img {
@@ -4079,6 +4214,12 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
   color: rgb(126, 169, 230, 0.8)
 }
 
+/* 페이징 화살표 링크 클릭 불가능한 경우 비활성화 색상 */
+#paging .no-more-prev i,
+#paging .no-more-next i {
+  color: rgb(153 153 161 / 0.2);
+}
+
 /* 커스텀 페이징 */
 #paging span:not(.selected) {
   display: none;
@@ -4086,13 +4227,13 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
 }
 
 /* 커스텀 페이징 모바일 최대 페이지 나오게 시작*/
-#paging li:nth-last-child(2) span {
+#paging li:nth-last-child(2) span:not(.selected) {
   display: inline-block;
   margin-left: 2rem;
   position: relative;
 }
 
-#paging li:nth-last-child(2) span:before {
+#paging li:nth-last-child(2) span:not(.selected)::before {
     content: "";
     position: absolute;
     top: 0.5rem;
@@ -4109,7 +4250,7 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
   #paging span:not(.selected) {
     display: inline-block;
   }
-  #paging li:nth-last-child(2) span {
+  #paging li:nth-last-child(2) span:not(.selected) {
     margin-left: 0;
   }
   #paging li:nth-last-child(2) span::before{
@@ -4194,26 +4335,35 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
 
 #sidebar #category .tt_category .link_tit {
   margin-bottom: 1.5rem;
+  /* 원래 1.5 */
   display: inline-block;
   font-size: 0.875rem;
   line-height: 1.25rem;
+  padding: 0.875rem 1rem;
   font-weight: 900;
   /* --tw-text-opacity: 1; */
   /* color: rgb(0 0 0 / var(--tw-text-opacity)); */
     /* 커스텀 전체보기 폰트 */
   background: #80D0C7;
-  background: linear-gradient(to right, #80D0C7 0%, #7E92EB 50%);
-  -webkit-background-clip: text;
+  background: linear-gradient(to right, #80D0C7 0%, #7E92EB 100%);
+  opacity: .9;
+  /* -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+   */
+  border-radius: 999px;
+  color:#fff;
 }
 
 /* 전체 글 수 폰트 커스텀 */
 #sidebar #category .tt_category .link_tit .c_cnt {
-  --tw-bg-opacity: 0.1;
-  background: rgb(153 153 161 / var(--tw-bg-opacity));
-  border-radius: 1rem;
-  margin-left: 0.1rem;
+  /* --tw-bg-opacity: 0.12;
+  background: rgb(153 153 161 / var(--tw-bg-opacity)); */
+  background: rgb(255 255 255 / 0.7);
+  border-radius: 99px;
+  margin-left: 0.2rem;
   padding: 0.2rem 0.4rem;
+  /* border: solid 1px #fff; */
+  color: #7FB3D8;
 }
 
 .dark #sidebar #category .tt_category .link_tit {
@@ -4268,8 +4418,7 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
 #sidebar #category .tt_category ul li i {
   position: absolute;
   top: 0rem;
-  right: 0.5rem;
-  /* 원래 1 */
+  right: 0rem;
   padding: 0.5rem;
   cursor: pointer;
   font-size: 0.875rem;
@@ -4297,8 +4446,8 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
 /* 카테고리 글자 굵기 추가 커스텀과 패딩 보더 주기 */
 #sidebar #category .tt_category .sub_category_list li .link_sub_item{
   /* font-weight:initial; */
-  font-weight: 400;
-  padding: 0.5rem 0.25rem;
+  font-weight: 500;
+  padding: 0.5rem 0.5rem;
   border-radius: 10px;
   transition: all 0.3s;
 }
@@ -4311,11 +4460,16 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
   font-size: 0.875rem;
   line-height: 1.25rem;
   --tw-content: '\f0da';
-  color: rgba(109, 194, 184, 0.7);
+  color: rgba(153 153 161 / 0.2);
   /* 커스텀 번호 */
   content: var(--tw-content);
   font-family: 'Font Awesome 6 Free';
   font-weight: 900;
+  transition: color 0.2s;
+}
+
+#sidebar #category .tt_category .sub_category_list li .link_sub_item:hover::before {
+  color: rgb(128, 208, 199, 1);
 }
 
 #sidebar #blogmenu ul {
