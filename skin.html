@@ -273,28 +273,14 @@
                         <img class="lazyload rounded-full item-center" data-src="[##_image_##]" data-sizes="auto" width="20" height="20" alt="[##_blogger_##]">
                         <span class="font-bold">[##_blogger_##]</span>
                         <time class="header-des">[##_article_rep_simple_date_##]</time>
-                        <span class="admin flex gap-x-2 text-sm header-des-a">
+<!--                        <span class="admin flex gap-x-2 text-sm header-des-a">
                           <s_ad_div><a href="[##_s_ad_m_link_##]">수정</a><a href="#" onclick="[##_s_ad_d_onclick_##]">삭제</a><a href="#" onclick="[##_s_ad_s2_onclick_##]">[##_s_ad_s1_label_##]</a></s_ad_div>
-                        </span>
+                        </span>-->
                       </div>
                     </div>
                   </div>
                 </header>
                 <!--커스텀 글 헤더 끝-->
-
-                <!-- 헤더 원본 보존 여기부터
-                <header class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16">
-                  <s_article_rep_thumbnail>
-                    <div class='thumbnail absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="[##_article_rep_thumbnail_url_##]" alt=""></div>
-                  </s_article_rep_thumbnail>
-                  <div class="description flex flex-col items-center gap-y-2 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0"><a href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
-                    <h1 class="text-center font-bold text-2xl lg:text-3xl">[##_article_rep_title_##]</h1>
-                    <div class="flex gap-x-2"><time class="text-sm">[##_article_rep_date_##]</time><span class="admin flex gap-x-2 text-sm">
-                        <s_ad_div><a href="[##_s_ad_m_link_##]">수정</a><a href="#" onclick="[##_s_ad_d_onclick_##]">삭제</a><a href="#" onclick="[##_s_ad_s2_onclick_##]">[##_s_ad_s1_label_##]</a></s_ad_div>
-                      </span></div>
-                  </div>
-                </header>
-                헤더 원본 보존 끝 -->
                 <div class="px-5 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
                   <article class="relative" id="content" x-ref="content">
                     <div x-data="content">
@@ -429,7 +415,7 @@
                 </s_rp>
               </div>
             </s_permalink_article_rep>
-            <s_page_rep>
+            <s_page_rep><!--페이지 치환자-->
               <div id="page">
                 <header class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-300 dark:border-b-h-700 lg:mb-16">
                   <s_article_rep_thumbnail>
@@ -470,13 +456,13 @@
                   </article>
                   <div x-data="{ shown: false }" x-intersect.once="shown = true">
                     <footer class="mt-4" x-show="shown">
-<!--                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
+                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
                         <div class="flex flex-col gap-y-1">
                           <div class="text-h-800 dark:text-h-200 font-bold">[##_blogger_##]</div>
                           <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
                         </div>
                       </div>
--->                    </footer>
+                    </footer>
                   </div>
                 </div>
               </div>
@@ -578,7 +564,6 @@
               <header class="h-64 mb-10 flex justify-center items-center">
                 <s_list_image>
 <!-- 첫페이지 & 카테고리 전체글 헤더 커스텀 이미지 -->
-<!--                <div class='thumbnail absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/30 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="./images/headercover.jpg" alt=""></div>-->
                 </s_list_image>
                 <div class="description flex flex-col items-center z-20 relative mx-4 text-center text-h-800 dark:text-h-200 lg:mx-0 mt-8">
                   <h1 class="font-bold mt-4 text-2xl lg:text-4xl category-getter">[##_list_conform_##]</h1>
@@ -636,13 +621,7 @@
                 <div class="border-b border-h-300 my-4 dark:border-h-100/20">
                   <!-- 라인 커스텀 -->
                 </div>
-<!-- 원본 보존
-                  <div class="text-center flex flex-col items-center my-4"><img class="rounded-full" src="[##_image_##]" width="100" height="100" alt="[##_blogger_##]">
-                    <div><a class="link_tit inline-block pt-4 pb-1 font-bold" href="[##_blog_link_##]">[##_title_##]</a></div>
-                    <div class="text-h-400 text-sm font-bold">[##_blogger_##]</div>
-                  </div>
-                </div>
--->              </s_sidebar_element>
+              </s_sidebar_element>
               <s_sidebar_element><!-- 방문자 수-->
                 <div class="sidebar-element">
                   <div class="overflow-hidden flex justify-between" id="counter">
@@ -792,20 +771,6 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
         </div>
 </nav>
 <!-- 커스텀 nav 끝 -->
-<!-- nav 원본 보존
-<nav id="navmain">
-        <div class="w-full box-border px-5 h-14 top-0 fixed flex justify-between items-center z-30 xl:px-5 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>">
-          <div><img class="lazyload rounded-full w-9 h-9 cursor-pointer <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>" @click="sidebar = ! sidebar" data-src="[##_image_##]" data-sizes="auto" alt="[##_blogger_##]" width="36" height="36"></div>
-          <div>
-            <div class="m-0 text-sm font-bold h-5 text-overflow-hidden max-w-[calc(80vw-152px)] text-h-800 dark:text-h-200" x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0"><a href="#" roll="button" data-func="go-to-top">[##_page_title_##]</a></div>
-          </div>
-          <div><button class="subscription flex justify-center items-center w-10 h-10 outline-0 rounded-full bg-h-200 text-h-500 hover:bg-h-300 dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600 btn_menu_toolbar btn_subscription #subscribe" onclick="location.href='[##_blog_link_##]'" alt="첫 페이지로 이동"><i class="fa-solid fa-bolt-lightning font-bold text-sm"></i></button></div>
-        </div>
-
-        <div class="w-full box-border px-5 h-14 top-0 fixed flex justify-between items-center z-10 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5  <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-        </div>
-</nav>
--->
         <div class="flex justify-end px-3 w-full box-border fixed text-sm z-10 bottom-3 xl:bottom-4 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" id="bottom">
           <div class="flex gap-x-3"><button type="button" onclick="window.scrollTo(0,0);"><span class="text-hidden">상단으로</span><i class="fa-solid fa-chevron-up text-base"></i></button></div>
         </div>
