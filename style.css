@@ -30,8 +30,18 @@
   --tw-content: '';
 }
 
-/* TOC 스타일 커스텀 */
+/* 셀렉션 커스텀 */
+::selection {
+  background-color: rgb(127, 206, 199);
+  color: #fff;
+}
 
+.dark ::selection{
+  background-color: rgb(127, 206, 199);
+  color: rgb(0 0 0 / .9);
+}
+
+/* TOC 스타일 커스텀 */
 .toc-list {
     padding: 0.5rem;
     border-radius: 99px;
@@ -44,9 +54,10 @@
   position: relative;
   margin-left: 1.5rem;
 }
+
 .toc-title::before {
     position: absolute;
-    margin-left: -1rem;
+    margin-left: -1.25rem;
     font-size: 0.875rem;
     line-height: inherit;
     --tw-content: '\f0d7';
@@ -3965,10 +3976,14 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
   [data-mode=grid] .post .description-bottom {
     padding: 1rem;
     border-top: solid 1px rgb(240 240 243);
+    --tw-bg-opacity: 1;
+    background-color: rgb(255 255 255 /var(--tw-bg-opacity));
   }
 
   .dark [data-mode=grid] .post .description-bottom {
     border-top: solid 1px rgb(0 0 0 /20%);  
+    --tw-bg-opacity: 1;
+    background-color: rgb(41 42 45 / var(--tw-bg-opacity));
   }
 
   .dark [data-mode=grid] .post{
@@ -4192,7 +4207,9 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
 
 /* 페이징 화살표 링크 클릭 불가능한 경우 비활성화 색상 */
 #paging .no-more-prev i,
-#paging .no-more-next i {
+#paging .no-more-next i,
+.dark #paging .no-more-prev i,
+.dark #paging .no-more-next i {
   color: rgb(153 153 161 / 0.2);
 }
 
@@ -4234,15 +4251,15 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
   }
   
 }
-/* 커스텀끝 */
+/* 커스텀 끝 */
 
 #paging .selected {
   display: inline-block;
   border-radius: 9999px;
   --tw-bg-opacity: 0.5;
-  background-color: rgb(153 153 161 / var(--tw-bg-opacity));
+  /* background-color: rgb(153 153 161 / var(--tw-bg-opacity)); */
   /* 페이징 셀렉티드 색 커스텀 */
-  background: linear-gradient(120deg, #80D0C7 20%, #7E92EB 100%);
+  background: linear-gradient(120deg, rgb(128, 208, 199, .9) 20%, rgb(126, 146, 235, 0.6) 100%);
   --tw-text-opacity: 1;
   color: rgb(244 244 246 / var(--tw-text-opacity))
 }
@@ -4318,24 +4335,18 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
   /* color: rgb(0 0 0 / var(--tw-text-opacity)); */
     /* 커스텀 전체보기 폰트 */
   background: #80D0C7;
-  background: linear-gradient(to right, #80D0C7 0%, #7E92EB 100%);
+  background: linear-gradient(120deg, rgb(128, 208, 199, 1) 20%, rgb(126, 146, 235, 0.9) 100%);
   opacity: .9;
-  /* -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
-   */
   border-radius: 999px;
   color:#fff;
 }
 
 /* 전체 글 수 폰트 커스텀 */
 #sidebar #category .tt_category .link_tit .c_cnt {
-  /* --tw-bg-opacity: 0.12;
-  background: rgb(153 153 161 / var(--tw-bg-opacity)); */
   background: rgb(255 255 255 / 0.7);
   border-radius: 99px;
   margin-left: 0.2rem;
   padding: 0.2rem 0.4rem;
-  /* border: solid 1px #fff; */
   color: #7FB3D8;
 }
 
