@@ -30,6 +30,22 @@
   --tw-content: '';
 }
 
+/* 레퍼런스 커스텀 */
+
+#reference li::before {
+    --tw-content: '\f0da';
+    color: rgb(102 102 110 / 0.15);
+    content: var(--tw-content);
+    font-family: 'Font Awesome 6 Free';
+    font-weight: 900;
+    padding-right: 0.875rem;
+}
+
+#reference li  {
+  list-style:none !important;
+  padding-left: 0.875rem;
+}
+
 /* 셀렉션 커스텀 */
 ::selection {
   background-color: rgb(127, 206, 199);
