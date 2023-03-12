@@ -289,7 +289,7 @@
                           <strong class="flex items-center text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-300 dark:border-h-200"><i class="fas fa-list-ul px-2 toc-list"></i><span class="text-base">Table of Contents</span></strong>
                             <ol class="flex flex-col gap-y-3"><template x-for="heading in $data.headings" :key="heading.id">
                                 <li :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="flex items-center text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200 toc-title" :href="heading.href">
-                                    <!--<i class="fas fa-caret-down scale-75"></i>--><div class="text-overflow-hidden" x-text="heading.text"></div><!--커스텀 목차-->
+                                    <div class="text-overflow-hidden" x-text="heading.text"></div><!--커스텀 목차-->
                                   </a></li>
                               </template></ol>
                           </div>
@@ -837,9 +837,9 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
       }
       cateLists.forEach(cateHandler);
       //메인페이지일 경우 첫번째 카테고리 펴기
-      if ( window.location.pathname == '/' || window.location.pathname == '/category' ) {
-        cateLists[0].parentNode.firstChild.click();
-      }
+      // if ( window.location.pathname == '/' || window.location.pathname == '/category' ) {
+      //   cateLists[0].parentNode.firstChild.click();
+      // }
     });
 </script>
   </body>
