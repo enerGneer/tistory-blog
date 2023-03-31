@@ -272,7 +272,14 @@
                       <div class="flex gap-x-2 mt-4">
                         <img class="lazyload rounded-full item-center" data-src="[##_image_##]" data-sizes="auto" width="20" height="20" alt="[##_blogger_##]">
                         <span class="font-bold">[##_blogger_##]</span>
-                        <time class="header-des">[##_article_rep_simple_date_##]</time>
+                        <time class="header-des">                          
+                          <script>
+                            const month = '[##_article_rep_date_month_##]' - 1;
+
+                            const m = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug", "Sep","Oct","Nov","Dec"];
+
+                            document.write(m[month]);
+                          </script>, [##_article_rep_date_year_##]</time>
 <!--                        <span class="admin flex gap-x-2 text-sm header-des-a">
                           <s_ad_div><a href="[##_s_ad_m_link_##]">수정</a><a href="#" onclick="[##_s_ad_d_onclick_##]">삭제</a><a href="#" onclick="[##_s_ad_s2_onclick_##]">[##_s_ad_s1_label_##]</a></s_ad_div>
                         </span>-->
@@ -583,7 +590,9 @@
                         <p class="relative overflow-hidden text-h-400 leading-7">[##_list_rep_summary_##]</p>
                       </div>
                       <div class="description-bottom"><!--그리드 커스텀-->
-                        <time class="text-h-400 text-xs block">[##_list_rep_regdate_##]</time>
+                        <time class="text-h-400 text-xs block list-date">
+                          <span>[##_list_rep_date_month_##]</span>, [##_list_rep_date_year_##]
+                        </time>
                       </div>
                   </div>
                 </s_list_rep>
@@ -777,6 +786,16 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
       </div>
     </s_t3>
 <script>
+// 리스트 날짜 변경
+  const months = document.querySelectorAll(".post .list-date");
+  
+  for (const month of months) {
+    const monthNomber = month.firstElementChild.textContent - 1;
+    const m = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug", "Sep","Oct","Nov","Dec"];
+    month.firstElementChild.textContent = m[monthNomber];
+  }
+</script>
+<script>
 // 카테고리 글 숫자의 괄호 변경
   const cateCount = document.querySelectorAll('#category .c_cnt');
   for (i = 0; i < cateCount.length; i++) {
@@ -801,7 +820,7 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
 </script>
 <script>
       //메인페이지일 경우 타이틀 변경하기
-    window.addEventListener('DOMContentLoaded', function(){
+    window.addEventListener('DOMContentLoaded', function() {
       if ( window.location.pathname == '/') {
         const title = document.querySelector('h1');
         title.textContent = "enerGneer";

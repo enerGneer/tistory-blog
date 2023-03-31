@@ -46,6 +46,10 @@
   padding-left: 0.875rem;
 }
 
+#reference ul {
+  margin: 0 !important;
+}
+
 /* 셀렉션 커스텀 */
 ::selection {
   background-color: rgb(127, 206, 199);
@@ -246,7 +250,8 @@ html {
   -o-tab-size: 4;
   tab-size: 4;
   /* 3 */
-  font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Apple SD Gothic Neo", Meiryo, "Noto Sans JP", "Noto Sans KR", "Malgun Gothic", Osaka, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  /* font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Apple SD Gothic Neo", Meiryo, "Noto Sans JP", "Noto Sans KR", "Malgun Gothic", Osaka, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; */
+  font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Apple SD Gothic Neo", Meiryo, "Noto Sans JP", "Noto Sans KR", "Malgun Gothic", Osaka, sans-serif;
   /* 4 */
   font-feature-settings: normal;
   /* 5 */
@@ -262,7 +267,7 @@ body {
   /* 1 */
   line-height: inherit;
   /* 2 */
-  font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Apple SD Gothic Neo", Meiryo, "Noto Sans JP", "Noto Sans KR", "Malgun Gothic", Osaka, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Apple SD Gothic Neo", Meiryo, "Noto Sans JP", "Noto Sans KR", "Malgun Gothic", Osaka, sans-serif;
 }
 
 
@@ -2829,7 +2834,8 @@ button {
 
   padding-bottom: 0.125rem;
 
-  font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Apple SD Gothic Neo", Meiryo, "Noto Sans JP", "Noto Sans KR", "Malgun Gothic", Osaka, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  /* font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Apple SD Gothic Neo", Meiryo, "Noto Sans JP", "Noto Sans KR", "Malgun Gothic", Osaka, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; */
+  font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Apple SD Gothic Neo", Meiryo, "Noto Sans JP", "Noto Sans KR", "Malgun Gothic", Osaka, sans-serif;
 
   font-size: 0.875rem;
 
@@ -3070,7 +3076,7 @@ button {
 
 #content .contents_style figure[data-ke-type=opengraph] a {
 
-  border-width: 0px
+  border-width: 0px;
 }
 
 #content .contents_style figure[data-ke-type=opengraph] a .og-image {
@@ -3085,7 +3091,9 @@ button {
 
   --tw-bg-opacity: 1;
 
-  background-color: rgb(244 244 246 / var(--tw-bg-opacity))
+  /* background-color: rgb(244 244 246 / var(--tw-bg-opacity)) */
+  background-color: #fff;
+  /* 링크 opengraph 커스텀 */
 }
 
 .dark #content .contents_style figure[data-ke-type=opengraph] a .og-image {
@@ -3103,7 +3111,9 @@ button {
 
   --tw-bg-opacity: 1;
 
-  background-color: rgb(244 244 246 / var(--tw-bg-opacity))
+  /* background-color: rgb(244 244 246 / var(--tw-bg-opacity)) */
+    background-color: #fff;
+  /* 링크 opengraph 커스텀 */
 }
 
 .dark #content .contents_style figure[data-ke-type=opengraph] .og-text {
@@ -3117,7 +3127,9 @@ button {
 #content .contents_style figure[data-ke-type=opengraph] .og-text .og-desc,
 #content .contents_style figure[data-ke-type=opengraph] .og-text .og-host {
 
-font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Apple SD Gothic Neo", Meiryo, "Noto Sans JP", "Noto Sans KR", "Malgun Gothic", Osaka, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Apple SD Gothic Neo", Meiryo, "Noto Sans JP", "Noto Sans KR", "Malgun Gothic", Osaka, sans-serif;
+
+/* font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Apple SD Gothic Neo", Meiryo, "Noto Sans JP", "Noto Sans KR", "Malgun Gothic", Osaka, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; */
   --tw-text-opacity: 1;
 
   color: rgb(102 102 110 / var(--tw-text-opacity))
@@ -3295,7 +3307,8 @@ font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-syste
 
   margin-bottom: 1rem;
 
-font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Apple SD Gothic Neo", Meiryo, "Noto Sans JP", "Noto Sans KR", "Malgun Gothic", Osaka, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif;
+  font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Apple SD Gothic Neo", Meiryo, "Noto Sans JP", "Noto Sans KR", "Malgun Gothic", Osaka, sans-serif;
+/* font-family: Pretendard, "Pretendard JP Variable", "Pretendard JP", -apple-system, BlinkMacSystemFont, system-ui, Roboto, "Helvetica Neue", "Segoe UI", "Hiragino Sans", "Apple SD Gothic Neo", Meiryo, "Noto Sans JP", "Noto Sans KR", "Malgun Gothic", Osaka, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", sans-serif; */
   --tw-text-opacity: 1;
 
   color: rgb(53 54 56 / var(--tw-text-opacity))
