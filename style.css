@@ -4284,13 +4284,15 @@ button {
 
 #paging .selected {
   display: inline-block;
+  font-weight: 500;
   border-radius: 9999px;
-  --tw-bg-opacity: 0.5;
-  /* background-color: rgb(153 153 161 / var(--tw-bg-opacity)); */
+  --tw-bg-opacity: 0.15;
+  /* background-color: rgb(230 230 233 / var(--tw-bg-opacity)); */
+  background-color: rgb(153 153 161 / var(--tw-bg-opacity));
   /* 페이징 셀렉티드 색 커스텀 */
-  background: linear-gradient(120deg, rgb(128, 208, 199, .9) 20%, rgb(126, 146, 235, 0.6) 100%);
+  /* background: linear-gradient(120deg, rgb(128, 208, 199, .9) 20%, rgb(126, 146, 235, 0.6) 100%); */
   --tw-text-opacity: 1;
-  color: rgb(244 244 246 / var(--tw-text-opacity))
+  /* color: rgb(244 244 246 / var(--tw-text-opacity)) */
 }
 
 #sidebar #counter .title {
