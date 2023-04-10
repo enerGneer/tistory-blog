@@ -285,7 +285,7 @@
                         </span>-->
                       </div>
                     </div>
-                  </div>
+                  </div>                  
                 </header>
                 <!--커스텀 글 헤더 끝-->
                 <div class="px-5 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
@@ -317,6 +317,10 @@
                         </template></s_if_var_scrollspy>
                     </div>
                   </article>
+                                        <s_tag_label>
+                        <div class="mt-2 flex flex-wrap gap-x-1.5 text-[0]" id="tags">[##_tag_label_rep_##]</div>
+                      </s_tag_label>
+
                   <div x-data="{ shown: false }" x-intersect.once="shown = true">
                     <footer class="mt-4" x-show="shown">
                       <div class="mt-6 py-8 flex gap-x-5 items-center box-border bg-h-200 text-h-500 dark:bg-h-700 rounded-xl">
@@ -327,9 +331,6 @@
                           <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
                         </div>
                       </div>
-<!--                      <s_tag_label>
-                        <div class="mt-2 flex flex-wrap gap-x-1.5 text-[0]" id="tags">[##_tag_label_rep_##]</div>
-                      </s_tag_label>-->
                     </footer>
                   </div>
                 </div>
@@ -627,7 +628,7 @@
                     </div>
                   </div>
                 </div>
-                <div class="border-b border-h-300 my-4 dark:border-h-100/20">
+                <div class="border-b border-h-300-o my-4 dark:border-h-100/20">
                   <!-- 라인 커스텀 -->
                 </div>
               </s_sidebar_element>
@@ -732,6 +733,7 @@
                   </div>
                 </div>
               </s_sidebar_element>
+
               <s_sidebar_element><!-- 최근 글-->
                 <div class="sidebar-element">
                   <div>
@@ -749,8 +751,11 @@
                   </div>
                 </div>
               </s_sidebar_element>
+
             </s_sidebar>
-            <div class="border-b border-h-300 my-4 dark:border-h-100/20">
+
+            
+            <div class="border-b border-h-300-o my-4 dark:border-h-100/20">
               <!-- 라인 커스텀 -->
             </div>
             <div class="sidebar-element">

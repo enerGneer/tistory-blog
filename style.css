@@ -30,6 +30,11 @@
   --tw-content: '';
 }
 
+/* CCL 커스텀 */
+.bundle_ccl {
+  display: none !important;
+}
+
 /* 레퍼런스 커스텀 */
 
 #reference li::before {
@@ -148,7 +153,7 @@
     overflow: hidden;
     z-index: 1;
     background-color: rgb(102 102 110 / 0.4);
-    font-weight: 500;
+    font-weight: 600;
     backdrop-filter: blur(1rem);
     padding: 0.2rem 0.7rem;
     border-radius: 99px;
@@ -1406,6 +1411,12 @@ video {
 
 .border-h-300 {
   --tw-border-opacity: 1;
+  border-color: rgb(230 230 233 / var(--tw-border-opacity));
+}
+
+/* 보더추가 오퍼시티 조정 */
+.border-h-300-o {
+  --tw-border-opacity: .5;
   border-color: rgb(230 230 233 / var(--tw-border-opacity));
 }
 
@@ -4005,7 +4016,8 @@ button {
 /* 커스텀 그리드 추가 */
   [data-mode=grid] .post .description-bottom {
     padding: 1rem;
-    border-top: solid 1px rgb(240 240 243);
+    --tw-border-opacity: .5;
+    border-top: solid 1px rgb(230 230 233 / var(--tw-border-opacity));
     --tw-bg-opacity: 1;
     background-color: rgb(255 255 255 /var(--tw-bg-opacity));
   }
@@ -4462,7 +4474,7 @@ button {
 /* 카테고리 글자 굵기 추가 커스텀과 패딩 보더 주기 */
 #sidebar #category .tt_category .sub_category_list li .link_sub_item{
   /* font-weight:initial; */
-  font-weight: 500;
+  font-weight: 600;
   padding: 0.5rem 0.5rem;
   border-radius: 10px;
   transition: all 0.3s;
