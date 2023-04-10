@@ -144,17 +144,23 @@ document.addEventListener("alpine:init", function () {
        * Init 'content' Component
        */
       init: function init() {
-        this.imagesToCenter();
-        this.highlight();
-        this.appendAnchorToHeadings();
-        this.lazyLoad();
-        this.setRatio();
-        this.setHeadings();
+        this.setAnchorToHeadings();
+        this.collectHeading();
+        this.centerImages();
+        this.setLazyLoadToImages();
+        this.setRatioToImages();
+        this.syntaxHighlighting();
       },
       /**
-       * Set headings
+       * Syntax highlighting code blocks in template
        */
-      setHeadings: function setHeadings() {
+      syntaxHighlighting: function syntaxHighlighting() {
+        this.$article.querySelectorAll("pre code").forEach(hljs.highlightElement);
+      },
+      /**
+       * Collect heading in template
+       */
+      collectHeading: function collectHeading() {
         var _this2 = this;
         this.$headings.forEach(function ($heading) {
           var heading = _this2.heading($heading);
@@ -178,13 +184,13 @@ document.addEventListener("alpine:init", function () {
         };
       },
       /**
-       * Lazy load
+       * Set lazy load to images in template
        */
-      lazyLoad: function lazyLoad() {
+      setLazyLoadToImages: function setLazyLoadToImages() {
         this.$article.querySelectorAll("figure[class^=image] img").forEach(this.setLazyLoadToImage);
       },
       /**
-       * Set Lazy load to image
+       * Set lazy load to image
        *
        * @param {object} $image
        */
@@ -195,46 +201,101 @@ document.addEventListener("alpine:init", function () {
         $image.dataset.sizes = "auto";
         $image.removeAttribute("src");
         $image.removeAttribute("srcset");
-        $image.removeAttribute("width");
-        $image.removeAttribute("height");
       },
       /**
-       * Align images(Single, Grid, Slide) to center
+       * set Ratio to images in template
        */
-      imagesToCenter: function imagesToCenter() {
-        var _this3 = this;
-        this.$article.querySelectorAll("figure.imageblock.alignCenter").forEach(function ($imageBlock) {
-          return _this3.centerImage($imageBlock, $imageBlock.dataset.originWidth || $imageBlock.getAttribute("width") || $imageBlock.offsetWidth);
-        });
-        this.$article.querySelectorAll("figure.imagegridblock").forEach(function ($imageBlock) {
-          return _this3.centerImage($imageBlock, 1100);
-        });
+      setRatioToImages: function setRatioToImages() {
+        this.$article.querySelectorAll("figure.imageslideblock").forEach(this.setRatioToImageSlideBlock.bind(this));
+        this.$article.querySelectorAll("figure.imageblock").forEach(this.setRatioToImageBlock.bind(this));
+        this.$article.querySelectorAll("figure.imagegridblock").forEach(this.setRatioToImageGridBlock.bind(this));
       },
       /**
-       * set Ratio to images
-       */
-      setRatio: function setRatio() {
-        this.$article.querySelectorAll("figure.imageslideblock").forEach(function ($imageBlock) {
-          var $imageWrap = $imageBlock.querySelector(".image-container");
-          var $image = $imageWrap.querySelector("img");
-          $imageWrap.style.paddingBottom = "".concat(($image.dataset.originHeight / $image.dataset.originWidth) * 100, "%");
-        });
-        this.$article.querySelectorAll("figure.imageblock").forEach(function ($imageBlock) {
-          var $imageWrap = $imageBlock.querySelector("span, a");
-          $imageWrap.style.paddingBottom = "".concat(($imageBlock.dataset.originHeight / $imageBlock.dataset.originWidth) * 100, "%");
-        });
-        this.$article.querySelectorAll("figure.imagegridblock").forEach(function ($imageBlock) {
-          var $imageWraps = $imageBlock.querySelectorAll("span, a");
-          $imageWraps.forEach(function ($imageWrap) {
-            $imageWrap.style.paddingBottom = "".concat(($imageWrap.dataset.originHeight / ($imageWrap.dataset.originWidth * (100 / $imageWrap.dataset.widthpercent))) * 100, "%");
-          });
-        });
-      },
-      /**
-       * Add css style for align image
+       * Set Ratio to image block
        *
        * @param {HTMLElement} $imageBlock
-       * @param {Number} originWidth
+       */
+      setRatioToImageBlock: function setRatioToImageBlock($imageBlock) {
+        var $imageWrap = $imageBlock.querySelector("span, a");
+        var $image = $imageWrap.querySelector("img");
+        var paddingBottom = this.ratio($imageBlock, $image);
+        $imageWrap.style.paddingBottom = "".concat(paddingBottom, "%");
+      },
+      /**
+       * Set Ratio to image grid block
+       *
+       * @param {HTMLElement} $imageBlock
+       */
+      setRatioToImageGridBlock: function setRatioToImageGridBlock($imageBlock) {
+        var _this3 = this;
+        var $imageWraps = $imageBlock.querySelectorAll("span, a");
+        $imageWraps.forEach(function ($imageWrap) {
+          var $image = $imageWrap.querySelector("img");
+          var paddingBottom = _this3.ratio($imageWrap, $image);
+          $imageWrap.style.paddingBottom = "".concat(paddingBottom, "%");
+        });
+      },
+      /**
+       * Set Ratio to image slide block
+       *
+       * @param {HTMLElement} $imageBlock
+       */
+      setRatioToImageSlideBlock: function setRatioToImageSlideBlock($imageBlock) {
+        var $imageWrap = $imageBlock.querySelector(".image-container");
+        var $image = $imageWrap.querySelector("img");
+        var paddingBottom = this.ratio($image, $image);
+        $imageWrap.style.paddingBottom = "".concat(paddingBottom, "%");
+      },
+      /**
+       * Get ratio
+       *
+       * @param {HTMLElement} $originBlock
+       * @param {HTMLElement} $image
+       *
+       * @return {number}
+       */
+      ratio: function ratio($originBlock, $image) {
+        var width = $originBlock.dataset.originWidth;
+        var height = $originBlock.dataset.originHeight;
+        if ($image.getAttribute("width") && $image.getAttribute("height")) {
+          width = $image.getAttribute("width");
+          height = $image.getAttribute("height");
+        }
+        width = $originBlock.dataset.widthpercent ? width * (100 / $originBlock.dataset.widthpercent) : width;
+        return (height / width) * 100;
+      },
+      /**
+       * Center images in template
+       */
+      centerImages: function centerImages() {
+        this.$article.querySelectorAll("figure.imageblock.alignCenter").forEach(this.centerImageBlock.bind(this));
+        this.$article.querySelectorAll("figure.imagegridblock").forEach(this.centerImageGridBlock.bind(this));
+      },
+      /**
+       * Center image block
+       *
+       * @param {HTMLElement} $imageBlock
+       */
+      centerImageBlock: function centerImageBlock($imageBlock) {
+        var $imageWrap = $imageBlock.querySelector("span, a");
+        var $image = $imageWrap.querySelector("img");
+        var width = $image.getAttribute("width") || $imageBlock.dataset.originWidth;
+        this.centerImage($imageBlock, width);
+      },
+      /**
+       * Center image grid block
+       *
+       * @param {HTMLElement} $imageBlock
+       */
+      centerImageGridBlock: function centerImageGridBlock($imageBlock) {
+        var width = 1100;
+        this.centerImage($imageBlock, width);
+      },
+      /**
+       * Add center image css style
+       *
+       * @param {HTMLElement} $imageBlock
+       * @param {String|Number} originWidth
        */
       centerImage: function centerImage($imageBlock, originWidth) {
         var width = originWidth > 1100 ? 1100 : originWidth;
@@ -242,23 +303,17 @@ document.addEventListener("alpine:init", function () {
         $imageBlock.style.marginLeft = "calc(50% - ".concat(width / 2, "px)");
       },
       /**
-       * Set anchor to headings
+       * Set anchor to headings in template
        */
-      appendAnchorToHeadings: function appendAnchorToHeadings() {
-        this.$headings.forEach(this.appendAnchorToHeading.bind(this));
-      },
-      /**
-       * Syntax highlighting
-       */
-      highlight: function highlight() {
-        this.$article.querySelectorAll("pre code").forEach(hljs.highlightElement);
+      setAnchorToHeadings: function setAnchorToHeadings() {
+        this.$headings.forEach(this.setAnchorToHeading.bind(this));
       },
       /**
        * Set anchor to heading
        *
        * @param {HTMLElement} $heading
        */
-      appendAnchorToHeading: function appendAnchorToHeading($heading) {
+      setAnchorToHeading: function setAnchorToHeading($heading) {
         var link = this.link($heading);
         var $anchor = this.$anchor($heading, "#".concat(link));
         $heading.setAttribute("id", link);
@@ -294,7 +349,7 @@ document.addEventListener("alpine:init", function () {
        * @return {HTMLElement}
        */
       get $article() {
-        return this.$refs._article_.content;
+        return this.$refs.articleTemplate.content;
       },
       /**
        * Get headings in content
