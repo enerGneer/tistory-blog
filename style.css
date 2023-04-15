@@ -513,46 +513,6 @@ video {
   --tw-backdrop-sepia: ;
 }
 
-/* https://github.com/aFarkas/lazysizes#css-api */
-@keyframes pulse {
-
-  50% {
-    opacity: .5;
-  }
-}
-
-.lazyload,
-.lazyloading {
-  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
-  --tw-bg-opacity: 1;
-  background-color: rgb(230 230 233 / var(--tw-bg-opacity));
-}
-
-.dark .lazyload,
-.dark .lazyloading {
-  --tw-bg-opacity: 1;
-  background-color: rgb(41 42 45 / var(--tw-bg-opacity));
-}
-
-.lazyload:not([src]) {
-  visibility: hidden;
-}
-
-/* https://swiperjs.com/demos#navigation */
-.swiper-button-next,
-.swiper-button-prev {
-  --swiper-navigation-size: 1.5rem;
-  --swiper-navigation-color: rgba(255, 255, 255, .6);
-}
-
-@media not all and (min-width: 1100px) {
-
-  .swiper-button-next,
-  .swiper-button-prev {
-    display: none !important;
-  }
-}
-
 .fixed {
   position: fixed;
 }
@@ -577,8 +537,8 @@ video {
   left: 0px;
 }
 
-.-left-64 {
-  left: -16rem;
+.-left-\[calc\(theme\(width\.s\)\)\] {
+  left: calc(calc(16rem) * -1);
 }
 
 .right-0 {
@@ -857,6 +817,14 @@ video {
   max-height: 100%;
 }
 
+.max-h-\[calc\(100vh-theme\(spacing\.20\)-theme\(spacing\.10\)-theme\(spacing\.3\)-2rem\)\] {
+  max-height: calc(100vh - 5rem - 2.5rem - 0.75rem - 2rem);
+}
+
+.max-h-\[inherit\] {
+  max-height: inherit;
+}
+
 .min-h-0 {
   min-height: 0px;
 }
@@ -881,11 +849,11 @@ video {
   width: 0px;
 }
 
-.w-sidebar {
+.w-s {
   width: 16rem;
 }
 
-.w-\[calc\(theme\(width\.sidebar\)\+theme\(spacing\.8\)\)\] {
+.w-\[calc\(theme\(width\.s\)\+theme\(spacing\.8\)\)\] {
   width: calc(16rem + 2rem);
 }
 
@@ -923,6 +891,10 @@ video {
 
 .w-56 {
   width: 14rem;
+}
+
+.w-\[calc\(theme\(spacing\.56\)\+theme\(spacing\.5\)\)\] {
+  width: calc(14rem + 1.25rem);
 }
 
 .w-20 {
@@ -1620,6 +1592,52 @@ button {
   pointer-events: auto !important;
 }
 
+/* https://github.com/aFarkas/lazysizes#css-api */
+@keyframes pulse {
+
+  50% {
+    opacity: .5;
+  }
+}
+
+.lazyload,
+.lazyloading {
+  animation: pulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  --tw-bg-opacity: 1;
+  background-color: rgb(230 230 233 / var(--tw-bg-opacity));
+}
+
+.dark .lazyload,
+.dark .lazyloading {
+  --tw-bg-opacity: 1;
+  background-color: rgb(41 42 45 / var(--tw-bg-opacity));
+}
+
+.lazyloaded {
+  animation: none;
+  --tw-bg-opacity: 1;
+  background-color: rgb(255 255 255 / var(--tw-bg-opacity));
+}
+
+.lazyload:not([src]) {
+  visibility: hidden;
+}
+
+/* https://swiperjs.com/demos#navigation */
+.swiper-button-next,
+.swiper-button-prev {
+  --swiper-navigation-size: 1.5rem;
+  --swiper-navigation-color: rgba(255, 255, 255, .6);
+}
+
+@media not all and (min-width: 1100px) {
+
+  .swiper-button-next,
+  .swiper-button-prev {
+    display: none !important;
+  }
+}
+
 .before\:absolute::before {
   content: var(--tw-content);
   position: absolute;
@@ -1875,8 +1893,12 @@ button {
     padding: 1.5rem;
   }
 
-  .max-2xl\:pr-8 {
-    padding-right: 2rem;
+  .max-2xl\:pt-8 {
+    padding-top: 2rem;
+  }
+
+  .max-2xl\:pr-14 {
+    padding-right: 3.5rem;
   }
 
   .max-2xl\:transition-\[right\] {
@@ -2131,7 +2153,7 @@ button {
     top: 5rem;
   }
 
-  .\32xl\:ml-\[calc\(\(\(1100px\+theme\(spacing\.pem\)\)\/2\)\+theme\(spacing\.5\)\)\] {
+  .\32xl\:ml-\[calc\(\(\(1100px\+theme\(width\.pem\)\)\/2\)\+theme\(spacing\.5\)\)\] {
     margin-left: calc(((1100px + var(--h-width)) / 2) + 1.25rem);
   }
 
@@ -2147,9 +2169,9 @@ button {
     height: 100%;
   }
 
-  .\32xl\:px-6 {
-    padding-left: 1.5rem;
-    padding-right: 1.5rem;
+  .\32xl\:px-8 {
+    padding-left: 2rem;
+    padding-right: 2rem;
   }
 }
 
