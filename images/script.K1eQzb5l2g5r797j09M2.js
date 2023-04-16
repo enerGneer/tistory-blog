@@ -1,5 +1,5 @@
-document.addEventListener("alpine:init", function () {
-  return Alpine.data("indicator", function () {
+document.addEventListener('alpine:init', function() {
+  return Alpine.data('indicator', function() {
     return {
       /**
        * Scroll indicate
@@ -7,14 +7,14 @@ document.addEventListener("alpine:init", function () {
       indicate: function indicate() {
         var winScroll = document.body.scrollTop || document.documentElement.scrollTop;
         var height = document.documentElement.scrollHeight - document.documentElement.clientHeight;
-        var scrolled = (winScroll / height) * 100;
-        this.$refs.indicator.style.width = scrolled + "%";
-      },
+        var scrolled = winScroll / height * 100;
+        this.$refs.indicator.style.width = scrolled + '%';
+      }
     };
   });
 });
-document.addEventListener("alpine:init", function () {
-  return Alpine.data("scrollspy", function () {
+document.addEventListener('alpine:init', function() {
+  return Alpine.data('scrollspy', function() {
     return {
       /**
        * Show
@@ -27,7 +27,7 @@ document.addEventListener("alpine:init", function () {
        *
        * @property {string} activeClass
        */
-      activeClass: "active",
+      activeClass: 'active',
       /**
        * Open
        *
@@ -53,7 +53,7 @@ document.addEventListener("alpine:init", function () {
       track: function track() {
         var _this = this;
         var $headings = this.$headings;
-        $headings.forEach(function ($heading, index) {
+        $headings.forEach(function($heading, index) {
           if (_this["in"]($heading)) {
             _this.reset();
             _this.hit(index);
@@ -82,8 +82,8 @@ document.addEventListener("alpine:init", function () {
        * inactive All
        */
       reset: function reset() {
-        this.$data.headings.forEach(function (spy) {
-          return (spy.active = false);
+        this.$data.headings.forEach(function(spy) {
+          return spy.active = false;
         });
       },
       /**
@@ -93,7 +93,7 @@ document.addEventListener("alpine:init", function () {
        *
        * @returns {boolean}
        */
-      in: function _in($heading) {
+      "in": function _in($heading) {
         return $heading.getBoundingClientRect().top < 0;
       },
       /**
@@ -121,19 +121,19 @@ document.addEventListener("alpine:init", function () {
        */
       get $headings() {
         return this.$article.querySelectorAll(this.$data.supportHeadings);
-      },
+      }
     };
   });
 });
-document.addEventListener("alpine:init", function () {
-  return Alpine.data("content", function () {
+document.addEventListener('alpine:init', function() {
+  return Alpine.data('content', function() {
     return {
       /**
        * Support Headings
        *
        * @property {array} headings
        */
-      supportHeadings: ".contents_style > h2, .contents_style > h3",
+      supportHeadings: '.contents_style > h2, .contents_style > h3',
       /**
        * Headings
        *
@@ -146,23 +146,23 @@ document.addEventListener("alpine:init", function () {
       init: function init() {
         this.setAnchorToHeadings();
         this.collectHeading();
-        this.centerImages();
         this.setLazyLoadToImages();
         this.setRatioToImages();
-        this.syntaxHighlighting();
+        this.setPositionToImages();
+        this.highlightCodeBlocks();
       },
       /**
        * Syntax highlighting code blocks in template
        */
-      syntaxHighlighting: function syntaxHighlighting() {
-        this.$article.querySelectorAll("pre code").forEach(hljs.highlightElement);
+      highlightCodeBlocks: function highlightCodeBlocks() {
+        this.$article.querySelectorAll('pre code').forEach(hljs.highlightElement);
       },
       /**
        * Collect heading in template
        */
       collectHeading: function collectHeading() {
         var _this2 = this;
-        this.$headings.forEach(function ($heading) {
+        this.$headings.forEach(function($heading) {
           var heading = _this2.heading($heading);
           _this2.headings.push(heading);
         });
@@ -180,14 +180,14 @@ document.addEventListener("alpine:init", function () {
           id: $heading.id,
           href: "#".concat($heading.id),
           text: $heading.textContent,
-          active: false,
+          active: false
         };
       },
       /**
        * Set lazy load to images in template
        */
       setLazyLoadToImages: function setLazyLoadToImages() {
-        this.$article.querySelectorAll("figure[class^=image] img").forEach(this.setLazyLoadToImage);
+        this.$article.querySelectorAll('figure[class^=image] img').forEach(this.setLazyLoadToImage);
       },
       /**
        * Set lazy load to image
@@ -195,20 +195,20 @@ document.addEventListener("alpine:init", function () {
        * @param {object} $image
        */
       setLazyLoadToImage: function setLazyLoadToImage($image) {
-        $image.classList.add("lazyload");
-        $image.dataset.src = $image.getAttribute("src");
-        $image.dataset.srcset = $image.getAttribute("srcset");
-        $image.dataset.sizes = "auto";
-        $image.removeAttribute("src");
-        $image.removeAttribute("srcset");
+        $image.classList.add('lazyload');
+        $image.dataset.src = $image.getAttribute('src');
+        $image.dataset.srcset = $image.getAttribute('srcset');
+        $image.dataset.sizes = 'auto';
+        $image.removeAttribute('src');
+        $image.removeAttribute('srcset');
       },
       /**
        * set Ratio to images in template
        */
       setRatioToImages: function setRatioToImages() {
-        this.$article.querySelectorAll("figure.imageslideblock").forEach(this.setRatioToImageSlideBlock.bind(this));
-        this.$article.querySelectorAll("figure.imageblock").forEach(this.setRatioToImageBlock.bind(this));
-        this.$article.querySelectorAll("figure.imagegridblock").forEach(this.setRatioToImageGridBlock.bind(this));
+        this.$article.querySelectorAll('figure.imageslideblock').forEach(this.setRatioToImageSlideBlock.bind(this));
+        this.$article.querySelectorAll('figure.imageblock').forEach(this.setRatioToImageBlock.bind(this));
+        this.$article.querySelectorAll('figure.imagegridblock').forEach(this.setRatioToImageGridBlock.bind(this));
       },
       /**
        * Set Ratio to image block
@@ -216,8 +216,8 @@ document.addEventListener("alpine:init", function () {
        * @param {HTMLElement} $imageBlock
        */
       setRatioToImageBlock: function setRatioToImageBlock($imageBlock) {
-        var $imageWrap = $imageBlock.querySelector("span, a");
-        var $image = $imageWrap.querySelector("img");
+        var $imageWrap = $imageBlock.querySelector('span, a');
+        var $image = $imageWrap.querySelector('img');
         var paddingBottom = this.ratio($imageBlock, $image);
         $imageWrap.style.paddingBottom = "".concat(paddingBottom, "%");
       },
@@ -228,9 +228,9 @@ document.addEventListener("alpine:init", function () {
        */
       setRatioToImageGridBlock: function setRatioToImageGridBlock($imageBlock) {
         var _this3 = this;
-        var $imageWraps = $imageBlock.querySelectorAll("span, a");
-        $imageWraps.forEach(function ($imageWrap) {
-          var $image = $imageWrap.querySelector("img");
+        var $imageWraps = $imageBlock.querySelectorAll('span, a');
+        $imageWraps.forEach(function($imageWrap) {
+          var $image = $imageWrap.querySelector('img');
           var paddingBottom = _this3.ratio($imageWrap, $image);
           $imageWrap.style.paddingBottom = "".concat(paddingBottom, "%");
         });
@@ -241,8 +241,8 @@ document.addEventListener("alpine:init", function () {
        * @param {HTMLElement} $imageBlock
        */
       setRatioToImageSlideBlock: function setRatioToImageSlideBlock($imageBlock) {
-        var $imageWrap = $imageBlock.querySelector(".image-container");
-        var $image = $imageWrap.querySelector("img");
+        var $imageWrap = $imageBlock.querySelector('.image-container');
+        var $image = $imageWrap.querySelector('img');
         var paddingBottom = this.ratio($image, $image);
         $imageWrap.style.paddingBottom = "".concat(paddingBottom, "%");
       },
@@ -257,49 +257,78 @@ document.addEventListener("alpine:init", function () {
       ratio: function ratio($originBlock, $image) {
         var width = $originBlock.dataset.originWidth;
         var height = $originBlock.dataset.originHeight;
-        if ($image.getAttribute("width") && $image.getAttribute("height")) {
-          width = $image.getAttribute("width");
-          height = $image.getAttribute("height");
+        if ($image.hasAttribute('width') && $image.hasAttribute('height')) {
+          width = $image.getAttribute('width');
+          height = $image.getAttribute('height');
         }
         width = $originBlock.dataset.widthpercent ? width * (100 / $originBlock.dataset.widthpercent) : width;
-        return (height / width) * 100;
+        return height / width * 100;
       },
       /**
-       * Center images in template
+       * Set position to images
        */
-      centerImages: function centerImages() {
-        this.$article.querySelectorAll("figure.imageblock.alignCenter").forEach(this.centerImageBlock.bind(this));
-        this.$article.querySelectorAll("figure.imagegridblock").forEach(this.centerImageGridBlock.bind(this));
+      setPositionToImages: function setPositionToImages() {
+        this.$article.querySelectorAll('figure.imageblock').forEach(this.setImageBlockPosition.bind(this));
+        this.$article.querySelectorAll('figure.imagegridblock').forEach(this.setImageGridBlockPosition.bind(this));
+      },
+      /**
+       * Set image block position
+       *
+       * @param {HTMLElement} $imageBlock
+       */
+      setImageBlockPosition: function setImageBlockPosition($imageBlock) {
+        var width = this.imageBlockWidth($imageBlock);
+        if ($imageBlock.classList.contains('alignCenter')) {
+          this.setImageBlockToCenter($imageBlock, width);
+        }
+        if ($imageBlock.classList.contains('widthContent')) {
+          return;
+        }
+        this.setImageBlockWidth($imageBlock, width);
+      },
+      /**
+       * Set image grid block position
+       *
+       * @param {HTMLElement} $imageBlock
+       */
+      setImageGridBlockPosition: function setImageGridBlockPosition($imageBlock) {
+        var width = this.imageGridBlockWidth();
+        this.setImageBlockToCenter($imageBlock, width);
+        this.setImageBlockWidth($imageBlock, width);
       },
       /**
        * Center image block
        *
        * @param {HTMLElement} $imageBlock
        */
-      centerImageBlock: function centerImageBlock($imageBlock) {
-        var $imageWrap = $imageBlock.querySelector("span, a");
-        var $image = $imageWrap.querySelector("img");
-        var width = $image.getAttribute("width") || $imageBlock.dataset.originWidth;
-        this.centerImage($imageBlock, width);
+      imageBlockWidth: function imageBlockWidth($imageBlock) {
+        var $imageWrap = $imageBlock.querySelector('span, a');
+        var $image = $imageWrap.querySelector('img');
+        var width = $image.getAttribute('width') || $imageBlock.dataset.originWidth;
+        return width > 1100 ? 1100 : width;
       },
       /**
        * Center image grid block
-       *
-       * @param {HTMLElement} $imageBlock
        */
-      centerImageGridBlock: function centerImageGridBlock($imageBlock) {
-        var width = 1100;
-        this.centerImage($imageBlock, width);
+      imageGridBlockWidth: function imageGridBlockWidth() {
+        return 1100;
       },
       /**
-       * Add center image css style
+       * set Image Width
        *
        * @param {HTMLElement} $imageBlock
-       * @param {String|Number} originWidth
+       * @param {String|Number} width
        */
-      centerImage: function centerImage($imageBlock, originWidth) {
-        var width = originWidth > 1100 ? 1100 : originWidth;
+      setImageBlockWidth: function setImageBlockWidth($imageBlock, width) {
         $imageBlock.style.width = "".concat(width, "px");
+      },
+      /**
+       * set Image block to center
+       *
+       * @param {HTMLElement} $imageBlock
+       * @param {String|Number} width
+       */
+      setImageBlockToCenter: function setImageBlockToCenter($imageBlock, width) {
         $imageBlock.style.marginLeft = "calc(50% - ".concat(width / 2, "px)");
       },
       /**
@@ -316,7 +345,7 @@ document.addEventListener("alpine:init", function () {
       setAnchorToHeading: function setAnchorToHeading($heading) {
         var link = this.link($heading);
         var $anchor = this.$anchor($heading, "#".concat(link));
-        $heading.setAttribute("id", link);
+        $heading.setAttribute('id', link);
         $heading.innerHTML = $anchor.outerHTML;
       },
       /**
@@ -338,8 +367,8 @@ document.addEventListener("alpine:init", function () {
        * @return {HTMLElement}
        */
       $anchor: function $anchor($heading, link) {
-        var $anchor = document.createElement("a");
-        $anchor.setAttribute("href", link);
+        var $anchor = document.createElement('a');
+        $anchor.setAttribute('href', link);
         $anchor.textContent = $heading.textContent;
         return $anchor;
       },
@@ -358,12 +387,12 @@ document.addEventListener("alpine:init", function () {
        */
       get $headings() {
         return this.$article.querySelectorAll(this.supportHeadings);
-      },
+      }
     };
   });
 });
-document.addEventListener("alpine:init", function () {
-  return Alpine.data("category", function () {
+document.addEventListener('alpine:init', function() {
+  return Alpine.data('category', function() {
     return {
       /**
        * @var {Boolean} foldableCategory
@@ -383,12 +412,12 @@ document.addEventListener("alpine:init", function () {
        * @param {HTMLElement} $subCategory
        */
       foldable: function foldable($subCategory) {
-        $subCategory.parentNode.setAttribute("x-data", "{ open: false }");
-        $subCategory.setAttribute("x-show", "open");
-        $subCategory.setAttribute("x-collapse", "");
+        $subCategory.parentNode.setAttribute('x-data', '{ open: false }');
+        $subCategory.setAttribute('x-show', 'open');
+        $subCategory.setAttribute('x-collapse', '');
         var $icon = this.$icon;
-        $icon.setAttribute("x-on:click", "open = ! open");
-        $icon.setAttribute(":class", '{ "rotate-90 duration-200": open }');
+        $icon.setAttribute('x-on:click', 'open = ! open');
+        $icon.setAttribute(':class', '{ "rotate-90 duration-200": open }');
         $subCategory.parentNode.prepend($icon);
       },
       /**
@@ -397,7 +426,7 @@ document.addEventListener("alpine:init", function () {
        * @var {NodeListOf<HTMLElement>} $subCategories
        */
       get $subCategories() {
-        return this.$el.querySelectorAll(".sub_category_list");
+        return this.$el.querySelectorAll('.sub_category_list');
       },
       /**
        * Get a new icon
@@ -405,15 +434,15 @@ document.addEventListener("alpine:init", function () {
        * @var {HTMLElement} $icon
        */
       get $icon() {
-        var icon = document.createElement("i");
-        icon.classList.add("fa-solid", "fa-chevron-right");
+        var icon = document.createElement('i');
+        icon.classList.add('fa-solid', 'fa-chevron-right');
         return icon;
-      },
+      }
     };
   });
 });
-document.addEventListener("alpine:init", function () {
-  return Alpine.data("top", function () {
+document.addEventListener('alpine:init', function() {
+  return Alpine.data('top', function() {
     return {
       /**
        * @property {boolean} open
@@ -433,7 +462,7 @@ document.addEventListener("alpine:init", function () {
        */
       toggle: function toggle() {
         var _this4 = this;
-        this.$targets.forEach(function (el) {
+        this.$targets.forEach(function(el) {
           if (document.body.contains(el)) {
             _this4.open = el.getBoundingClientRect().top < 0;
           }
@@ -454,24 +483,24 @@ document.addEventListener("alpine:init", function () {
        */
       get $targets() {
         return [this.$refs.list, this.$refs.content];
-      },
+      }
     };
   });
 });
-document.addEventListener("alpine:init", function () {
-  return Alpine.data("theme", function () {
+document.addEventListener('alpine:init', function() {
+  return Alpine.data('theme', function() {
     return {
       /**
        * Toggle Theme
        */
       toggle: function toggle() {
-        localStorage.TTDARK = document.documentElement.classList.contains("dark") ? "N" : "Y";
-        document.documentElement.classList.toggle("dark");
+        localStorage.TTDARK = document.documentElement.classList.contains('dark') ? 'N' : 'Y';
+        document.documentElement.classList.toggle('dark');
         this.$data.dark = !this.$data.dark;
-      },
+      }
     };
   });
 });
-// window.addEventListener('DOMContentLoaded', function() {
-//   return Alpine.start();
-// });
+window.addEventListener('DOMContentLoaded', function() {
+  return Alpine.start();
+});
