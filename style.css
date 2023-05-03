@@ -3112,7 +3112,7 @@ button {
   --tw-bg-opacity: 1;
 
   /* background-color: rgb(244 244 246 / var(--tw-bg-opacity)) */
-    background-color: #fff;
+    background-color: #F9FAFB;
   /* 링크 opengraph 커스텀 */
 }
 
@@ -3135,6 +3135,15 @@ button {
   color: rgb(102 102 110 / var(--tw-text-opacity))
 }
 
+#content .contents_style figure[data-ke-type=opengraph] .og-text .og-title {
+
+  font-weight: 700;
+
+  --tw-text-opacity: 1;
+
+  color: rgb(53 54 56 / var(--tw-text-opacity))
+}
+
 .dark #content .contents_style figure[data-ke-type=opengraph] .og-text .og-title,
 .dark #content .contents_style figure[data-ke-type=opengraph] .og-text .og-desc,
 .dark #content .contents_style figure[data-ke-type=opengraph] .og-text .og-host {
@@ -3144,14 +3153,6 @@ button {
   color: rgb(244 244 246 / var(--tw-text-opacity))
 }
 
-#content .contents_style figure[data-ke-type=opengraph] .og-text .og-title {
-
-  font-weight: 700;
-
-  --tw-text-opacity: 1;
-
-  color: rgb(53 54 56 / var(--tw-text-opacity))
-}
 
 #content .contents_style figure.fileblock {
 
