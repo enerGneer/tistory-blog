@@ -7,10 +7,12 @@
     <title>[##_page_title_##] — [##_title_##]</title>
     <link rel="alternate" type="application/rss+xml" title="[##_title_##]" href="[##_rss_url_##]">
     <link rel="preconnect" href="//fonts.gstatic.com">
-    <link rel="stylesheet" :href='"//fonts.googleapis.com/css2?family=Noto+Sans+KR:wght@400;500;700&display=swap"'>
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-jp-dynamic-subset.css" />
+    <link rel="stylesheet" as="style" crossorigin href="https://cdn.jsdelivr.net/gh/orioncactus/pretendard@v1.3.6/dist/web/static/pretendard-dynamic-subset.css" />
     <link rel="stylesheet" :href='"//cdnjs.cloudflare.com/ajax/libs/font-awesome/6.2.1/css/all.min.css"'>
     <link rel="stylesheet" :href='"//cdn.jsdelivr.net/gh/wan2land/d2coding/d2coding-subset.css"'>
     <link rel="stylesheet" :href="`//cdn.jsdelivr.net/gh/highlightjs/cdn-release@11.7.0/build/styles/${dark ? skinOptions.hljsDark : skinOptions.hljs}.min.css`">
+
     <style>
       :root {
         --h-width: [##_var_width_##]px;
@@ -37,10 +39,34 @@
 
       document.documentElement.classList.toggle('dark', TTDARK)
     </script>
-    <script defer src="./images/vendor.06f3c7a41660393949bc.js"></script>
-    <script defer src="./images/app.06f3c7a41660393949bc.js"></script>
+    <script defer src="./images/vendor.97485018ffd2609cfe29.js"></script>
+    <script defer src="./images/app.97485018ffd2609cfe29.js"></script>
     <link rel="stylesheet" href="./style.css">
-    <script defer src="./images/script.byESu0xvjSUVjqEy0BaE.js"></script>
+    <script defer src="./images/script.owOSjn19thCxEQFAvnWA.js"></script>
+
+<!--fancy box-->
+  <script defer src="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/4.0.31/fancybox.umd.min.js"></script>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/fancyapps-ui/4.0.31/fancybox.min.css" />
+<script>
+  function replaceLightbox() {
+    HTMLCollection.prototype.forEach = Array.prototype.forEach;
+    let s = document.getElementsByTagName("span");
+    s.forEach((e) => {
+      if ("lightbox" in e.dataset) {
+        delete e.dataset.lightbox;
+        e.dataset.fancybox = "fancybox";
+        e.dataset.src = e.getElementsByTagName("img")[0].dataset.src;
+      }
+    });
+  }
+
+  window.addEventListener("DOMContentLoaded", () => {
+    Alpine.start();
+    replaceLightbox();
+  });
+
+</script>
+<!-- fancy box 끝 -->
   </head>
 
   <body class="min-w-xs overflow-x-hidden bg-h-100 text-h-900 dark:bg-h-800 dark:text-h-200" id="[##_body_id_##]">
@@ -49,7 +75,7 @@
     </div>
     <div class="fixed top-0 w-screen z-50" x-data="indicator" @scroll.window="indicate">
       <div class="w-screen">
-        <div class="w-0 h-0.5 bg-h-900 rounded bg-h-800 dark:bg-h-200" x-ref="indicator"></div>
+        <div class="w-0 h-0.5 bg-custom-color rounded" x-ref="indicator"></div>
       </div>
     </div>
     <s_t3>
@@ -59,14 +85,17 @@
             <div class="flex flex-col">
               <s_cover_rep>
                 <s_cover name="list">
-                  <section class="flex flex-col items-center px-4 lg:px-0 lg:w-idx lg:mx-auto" data-mode="list">
-                    <div class="text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20">[##_cover_title_##]</div>
+                  <section class="flex flex-col items-center px-5 lg:px-0 lg:w-idx mx-auto" data-mode="list">
+                    <h1 class="text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20">[##_cover_title_##]</h1>
                     <div class="list">
                       <s_cover_item>
                         <div class="post">
-                          <s_cover_item_thumbnail><a class="thumbnail" href="[##_cover_item_url_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></a></s_cover_item_thumbnail>
+                          <s_cover_item_thumbnail>
+                            <a class="thumbnail" href="[##_cover_item_url_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></a>
+                          </s_cover_item_thumbnail>
                           <s_cover_item_article_info>
-                            <div class="description flex flex-col"><a class="category text-sm text-h-400" href="[##_cover_item_category_url_##]">[##_cover_item_category_##]</a>
+                            <div class="description flex flex-col">
+<!--                            <a class="category text-sm text-h-400" href="[##_cover_item_category_url_##]">[##_cover_item_category_##]</a>-->
                               <h2><a class="text-h-800 dark:text-h-200" href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></h2><time class="text-h-400 text-sm">[##_cover_item_simple_date_##]</time>
                               <p class="relative overflow-hidden leading-7 text-h-500 dark:text-h-400">[##_cover_item_summary_##]</p>
                             </div>
@@ -83,16 +112,19 @@
                   </section>
                 </s_cover>
                 <s_cover name="grid">
-                  <section class="flex flex-col items-center px-4 lg:px-0 lg:w-idx lg:mx-auto" data-mode="grid">
-                    <div class="text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20">[##_cover_title_##]</div>
+                  <section class="flex flex-col items-center px-5 lg:px-0 lg:w-idx lg:mx-auto" data-mode="grid"><!--커스텀 최대 너비-->
+                    <h1 class="text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20">[##_cover_title_##]</h1>
                     <div class="list">
                       <s_cover_item>
                         <div class="post">
-                          <s_cover_item_thumbnail><a class="thumbnail" href="[##_cover_item_url_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></a></s_cover_item_thumbnail>
+                          <s_cover_item_thumbnail>
+                            <a class="thumbnail" onclick="location.href='[##_cover_item_url_##]'"><img class="lazyload object-cover bg-h-100" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></a>
+                          </s_cover_item_thumbnail>
                           <s_cover_item_article_info>
                             <div class="description flex flex-col"><a class="category text-sm text-h-400" href="[##_cover_item_category_url_##]">[##_cover_item_category_##]</a>
-                              <h2><a class="text-h-800 dark:text-h-200" href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></h2><time class="text-h-400 text-sm">[##_cover_item_simple_date_##]</time>
-                              <p class="relative overflow-hidden leading-7 text-h-500 dark:text-h-400">[##_cover_item_summary_##]</p>
+                              <h2><a class="text-h-800 dark:text-h-200" href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></h2>
+                              <time class="text-h-400 text-xs">[##_cover_item_simple_date_##]</time>
+<!--                              <p class="relative overflow-hidden leading-7 text-h-500 dark:text-h-400">[##_cover_item_summary_##]</p>-->
                             </div>
                           </s_cover_item_article_info>
                           <s_cover_item_not_article_info>
@@ -107,12 +139,14 @@
                   </section>
                 </s_cover>
                 <s_cover name="zigzag">
-                  <section class="flex flex-col items-center px-4 lg:px-0 lg:w-idx lg:mx-auto" data-mode="zigzag">
-                    <div class="text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20">[##_cover_title_##]</div>
+                  <section class="flex flex-col items-center px-5 lg:px-0 lg:w-idx lg:mx-auto" data-mode="zigzag">
+                    <h1 class="text-3xl font-bold text-h-600 dark:text-h-200 my-10 empty:my-10 lg:my-20">[##_cover_title_##]</h1>
                     <div class="list">
                       <s_cover_item>
                         <div class="post">
-                          <s_cover_item_thumbnail><a class="thumbnail" href="[##_cover_item_url_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></a></s_cover_item_thumbnail>
+                          <s_cover_item_thumbnail>
+                            <div class="thumbnail" href="[##_cover_item_url_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></div>
+                          </s_cover_item_thumbnail>
                           <s_cover_item_article_info>
                             <div class="description flex flex-col"><a class="category text-sm text-h-400" href="[##_cover_item_category_url_##]">[##_cover_item_category_##]</a>
                               <h2><a class="text-h-800 dark:text-h-200" href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></h2><time class="text-h-400 text-sm">[##_cover_item_simple_date_##]</time>
@@ -136,7 +170,9 @@
                       <div class="list swiper-wrapper">
                         <s_cover_item>
                           <div class="post swiper-slide flex justify-center items-center before:absolute before:right-0 before:top-0 before:w-full before:h-screen before:bg-h-900/60 before:z-10">
-                            <s_cover_item_thumbnail><a class="thumbnail" href="[##_cover_item_url_##]"><img class="lazyload object-cover bg-h-100 w-screen h-screen object-cover" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></a></s_cover_item_thumbnail>
+                            <s_cover_item_thumbnail>
+                              <div class="thumbnail" href="[##_cover_item_url_##]"><img class="lazyload object-cover bg-h-100 w-screen h-screen object-cover" data-src="[##_cover_item_thumbnail_##]" data-sizes="auto" alt=""></div>
+                            </s_cover_item_thumbnail>
                             <s_cover_item_article_info>
                               <div class="description flex flex-col text-h-200 absolute w-screen h-screen flex flex-col justify-center items-center gap-y-2 text-center z-20 [&_h2]:px-4 [&_a]:text-h-200 [&_a]:text-4xl [&_a]:font-bold">
                                 <h2><a class="text-h-800 dark:text-h-200" href="[##_cover_item_url_##]">[##_cover_item_title_##]</a></h2>
@@ -159,7 +195,7 @@
             </div>
           </s_cover_group>
           <s_guest>
-            <div class="w-full px-4 mt-20 lg:mt-40 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto" id="guestbook">
+            <div class="w-full px-5 mt-20 lg:mt-40 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto" id="guestbook">
               <s_guest_input_form>
                 <div class="p-5 w-full overflow-hidden mt-9 rounded-lg box-border h-32 lg:h-48 relative bg-h-200 dark:bg-h-700">
                   <div class="box-border flex flex-col justify-between h-full gap-y-3"><label class="text-hidden" for="text">댓글</label><textarea class="border-0 resize-none p-0 pr-5 h-full overflow-x-hidden overflow-y-scroll text-sm box-border outline-none w-[calc(100%+theme(spacing.10))] bg-h-200 dark:bg-h-700" id="text" name="[##_guest_textarea_body_##]"></textarea>
@@ -222,75 +258,108 @@
           <s_article_rep>
             <s_permalink_article_rep>
               <div id="permalink">
-                <header class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16">
+               <!--커스텀 글 헤더 -->
+                <header class="mt-20 mb-10 flex flex-col justify-end px-5 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
+                  <div class="description text-h-800 dark:text-h-200 lg:mx-0">
                   <s_article_rep_thumbnail>
-                    <div class='thumbnail absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="[##_article_rep_thumbnail_url_##]" alt=""></div>
+                  <div class="mb-6 header-thumbnail"><img class="header-thumbnail" src="[##_article_rep_thumbnail_url_##]" width="140" height="140"></div>
                   </s_article_rep_thumbnail>
-                  <div class="description flex flex-col items-center gap-y-2 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0"><a href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
-                    <h1 class="text-center font-bold text-2xl lg:text-3xl">[##_article_rep_title_##]</h1>
-                    <div class="flex gap-x-2"><time class="text-sm">[##_article_rep_date_##]</time><span class="admin flex gap-x-2 text-sm">
-                        <s_ad_div><a href="[##_s_ad_m_link_##]">수정</a><a href="#" onclick="[##_s_ad_d_onclick_##]">삭제</a><a href="#" onclick="[##_s_ad_s2_onclick_##]">[##_s_ad_s1_label_##]</a></s_ad_div>
-                      </span></div>
-                  </div>
+                    <h1 class="font-extrabold mt-4 text-3xl lg:text-4xl">[##_article_rep_title_##]</h1>
+                    <div class="flex gap-x-2 mt-2 text-sm flex-wrap text-h-500 dark:text-h-200 font-medium">
+                      <div class="mt-4 mr-2">
+                        <a class="text-sm category-getter header-des-cate" href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
+                      </div>
+                      <div class="flex gap-x-2 mt-4">
+                        <img class="lazyload rounded-full item-center" data-src="[##_image_##]" data-sizes="auto" width="20" height="20" alt="[##_blogger_##]">
+                        <span class="font-bold">[##_blogger_##]</span>
+                        <time class="header-des">                          
+                          <script>
+                            const month = '[##_article_rep_date_month_##]' - 1;
+
+                            const m = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug", "Sep","Oct","Nov","Dec"];
+
+                            document.write(m[month]);
+                          </script>, [##_article_rep_date_year_##]</time>
+<!--                        <span class="admin flex gap-x-2 text-sm header-des-a">
+                          <s_ad_div><a href="[##_s_ad_m_link_##]">수정</a><a href="#" onclick="[##_s_ad_d_onclick_##]">삭제</a><a href="#" onclick="[##_s_ad_s2_onclick_##]">[##_s_ad_s1_label_##]</a></s_ad_div>
+                        </span>-->
+                      </div>
+                    </div>
+                  </div>                  
                 </header>
-                <div class="px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
+                <!--커스텀 글 헤더 끝-->
+                <div class="px-5 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
                   <article class="relative" id="content" x-ref="content">
                     <div x-data="content">
                       <s_if_var_toc><template x-if="$data.headings.length > 0">
-                          <div class="rounded-md p-5 mb-8 box-border bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200" id="TOC"><strong class="flex items-center justify-between text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-400 dark:border-h-200"><span class="text-base">목차</span><i class="fas fa-bars"></i></strong>
+                          <div class="rounded-md p-5 mb-8 box-border bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200" id="TOC">
+                          <strong class="flex items-center text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-300 dark:border-h-200"><i class="fas fa-list-ul px-2 toc-list"></i><span class="text-base">Table of Contents</span></strong>
                             <ol class="flex flex-col gap-y-3"><template x-for="heading in $data.headings" :key="heading.id">
-                                <li :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="flex items-center justify-between text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href">
-                                    <div class="text-overflow-hidden" x-text="heading.text"></div><i class="fas fa-arrow-right scale-75"></i>
+                                <li :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="flex items-center text-sm duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200 toc-title" :href="heading.href">
+                                    <div class="text-overflow-hidden" x-text="heading.text"></div><!--커스텀 목차-->
                                   </a></li>
                               </template></ol>
                           </div>
                         </template></s_if_var_toc>
-                      <div id="article" x-ref="article"><template x-ref="articleTemplate" x-teleport="#article">
+                      <div id="article" x-ref="article"><template x-ref="_article_" x-teleport="#article">
                           <div>[##_article_rep_desc_##]</div>
                         </template></div>
                       <s_if_var_scrollspy><template x-if="$data.headings.length > 0">
-                          <div class="2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+theme(width.pem))/2)+theme(spacing.5))]" id="scrollspy" x-data="scrollspy" @scroll.window="scrollspy" x-transition:enter="transition ease-linear duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="show">
+                          <div class="2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+theme(spacing.pem))/2)+theme(spacing.5))]" id="scrollspy" x-data="scrollspy" @scroll.window="scrollspy" x-transition:enter="transition ease-linear duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="show">
                             <div class="2xl:sticky 2xl:top-20"><button class="fixed top-20 right-0 w-8 h-8 z-30 rounded-md bg-h-300 text-h-500 dark:bg-h-700 dark:text-h-200 2xl:hidden" x-show="! open" @click="toggle"><span class="text-hidden">목차</span><i class="fa-solid fa-list-check"></i></button>
-                              <div class="max-h-[calc(100vh-theme(spacing.20)-theme(spacing.10)-theme(spacing.3)-2rem)] overflow-hidden w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-40 max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:block" :class='open ? "max-2xl:right-4" : "max-2xl:-right-60"'>
-                                <div class="overflow-x-hidden overflow-y-scroll max-h-[inherit] w-[calc(theme(spacing.56)+theme(spacing.5))]"><button class="absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden" @click="toggle"><span class="text-hidden">목차 닫기</span><i class="fa-solid fa-xmark"></i></button>
-                                  <ol class="flex flex-col gap-y-3 max-2xl:p-6 max-2xl:pt-8 max-2xl:pr-14 2xl:px-8" x-ref="spy"><template x-for="heading in $data.headings" :key="heading.id">
-                                      <li class="text-h-400" :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class='{ "text-h-600 dark:text-h-200": heading.active }'></a></li>
-                                    </template></ol>
-                                </div>
+                              <div class="w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:p-6 max-2xl:pr-8 max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-40 max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:px-6 2xl:block" :class='open ? "max-2xl:right-4" : "max-2xl:-right-60"'><button class="absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden" @click="toggle"><span class="text-hidden">목차 닫기</span><i class="fa-solid fa-xmark"></i></button>
+                                <ul class="flex flex-col gap-y-3" x-ref="spy"><template x-for="heading in $data.headings" :key="heading.id">
+                                    <li class="text-h-400" :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class='{ "text-h-600 dark:text-h-200": heading.active }'></a></li>
+                                  </template></ul>
                               </div>
                             </div>
                           </div>
                         </template></s_if_var_scrollspy>
                     </div>
                   </article>
-                  <div x-data="{ shown: false }" x-intersect.once="shown = true">
-                    <footer class="mt-4" x-show="shown">
-                      <s_article_related>
-                        <div class="rounded-md p-5 mt-4 mb-0 box-border bg-h-200 text-h-500 dark:bg-h-700 dark:text-h-200">
-                          <div class="font-bold flex items-center justify-between text-overflow-hidden text-sm pb-2 mb-4 border-b border-solid border-h-400 dark:border-h-200"><span>'[##_article_rep_category_##]' 카테고리의 다른 글</span><i class="fas fa-bars"></i></div>
-                          <ul class="flex flex-col gap-y-2">
-                            <s_article_related_rep>
-                              <li><a class="flex items-center justify-between text-sm" href="[##_article_related_rep_link_##]">
-                                  <div class="text-overflow-hidden">[##_article_related_rep_title_##]</div><i class="fas fa-arrow-right scale-75"></i>
-                                </a></li>
-                            </s_article_related_rep>
-                          </ul>
-                        </div>
-                      </s_article_related>
-                      <s_tag_label>
+                                        <s_tag_label>
                         <div class="mt-2 flex flex-wrap gap-x-1.5 text-[0]" id="tags">[##_tag_label_rep_##]</div>
                       </s_tag_label>
-                      <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
-                        <div class="flex flex-col gap-y-1">
-                          <div class="text-h-800 dark:text-h-200 font-bold">[##_blogger_##]</div>
+
+                  <div x-data="{ shown: false }" x-intersect.once="shown = true">
+                    <footer class="mt-4" x-show="shown">
+                      <div class="mt-6 py-8 flex gap-x-5 items-center box-border bg-h-200 text-h-500 dark:bg-h-700 rounded-xl">
+                        <button style="margin-left:2rem; min-width:5rem;" onclick="location.href='[##_blog_link_##]'" alt="첫 페이지로 이동">
+                          <img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]"></button>
+                        <div class="flex flex-col gap-y-1" style=" margin-right:2rem;">
+                          <div class="text-h-800 dark:text-h-200 font-bold"><a href="[##_blog_link_##]" class="blogger-text" alt="첫 화면으로">𝒆𝒏𝒆𝒓𝗚</a></div>
                           <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
                         </div>
                       </div>
                     </footer>
                   </div>
                 </div>
+                <s_article_related>
+                  <div class="p-5 dark:text-h-200 box-border my-5 mb-20">
+                    <div class="font-extrabold flex flex-col flex-wrap text-center text-sm lg:text-xl mb-10">
+                      <span class="mb-10 related-icon"><a href="#related-article"><i class="fa-solid fa-angle-down"></i></a></span>
+                      <a class="mx-auto related-cate" href="[##_article_rep_category_link_##]"><span>[##_article_rep_category_##]</span><span> 카테고리의 다른 글</span></a>
+                    </div>
+                    <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-4 lg:w-idx lg:mx-auto" data-mode="grid" id="related-article">
+                      <s_article_related_rep>
+                        <li>
+                        <div class="post related">
+                          <s_article_related_rep_thumbnail>
+                            <a class="thumbnail" href="[##_article_related_rep_link_##]">
+                            <img class="lazyload object-cover bg-h-100" data-src="[##_article_related_rep_thumbnail_link_##]" data-sizes="auto" alt=""></a>
+                          </s_article_related_rep_thumbnail>
+                          <div class="description">
+                            <a class="text-sm font-bold" href="[##_article_related_rep_link_##]">
+                            [##_article_related_rep_title_##]</a>                            
+                          </div>
+                        </div>
+                        </li>                      
+                      </s_article_related_rep>
+                    </ul>
+                  </div>
+                </s_article_related>
                 <s_rp>
-                  <div class="px-4 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto" x-data="{ shown: false }" x-intersect.once="shown = true">
+                  <div class="px-5 lg:px-0 lg:max-w-screen-lg lg:w-pem lg:mx-auto" x-data="{ shown: false }" x-intersect.once="shown = true">
                     <div x-show="shown">
                       <s_rp_input_form>
                         <div class="p-5 w-full overflow-hidden mt-9 rounded-lg box-border h-32 lg:h-48 relative bg-h-200 dark:bg-h-700">
@@ -354,18 +423,18 @@
                 </s_rp>
               </div>
             </s_permalink_article_rep>
-            <s_page_rep>
+            <s_page_rep><!--페이지 치환자-->
               <div id="page">
-                <header class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16">
+                <header class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-300 dark:border-b-h-700 lg:mb-16">
                   <s_article_rep_thumbnail>
                     <div class='thumbnail absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="[##_article_rep_thumbnail_url_##]" alt=""></div>
                   </s_article_rep_thumbnail>
                   <div class="description flex flex-col items-center gap-y-2 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0">
                     <h1 class="text-center font-bold text-2xl lg:text-3xl">[##_article_rep_title_##]</h1>
-                    <div class="flex gap-x-2"><time class="text-sm">[##_article_rep_date_##]</time></div>
+                    <div class="flex gap-x-2"><time class="text-xs">[##_article_rep_simple_date_##]</time></div>
                   </div>
                 </header>
-                <div class="px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
+                <div class="px-5 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
                   <article class="relative" id="content" x-ref="content">
                     <div x-data="content">
                       <s_if_var_toc><template x-if="$data.headings.length > 0">
@@ -377,18 +446,16 @@
                               </template></ol>
                           </div>
                         </template></s_if_var_toc>
-                      <div id="article" x-ref="article"><template x-ref="articleTemplate" x-teleport="#article">
+                      <div id="article" x-ref="article"><template x-ref="_article_" x-teleport="#article">
                           <div>[##_article_rep_desc_##]</div>
                         </template></div>
                       <s_if_var_scrollspy><template x-if="$data.headings.length > 0">
-                          <div class="2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+theme(width.pem))/2)+theme(spacing.5))]" id="scrollspy" x-data="scrollspy" @scroll.window="scrollspy" x-transition:enter="transition ease-linear duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="show">
+                          <div class="2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+theme(spacing.pem))/2)+theme(spacing.5))]" id="scrollspy" x-data="scrollspy" @scroll.window="scrollspy" x-transition:enter="transition ease-linear duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="show">
                             <div class="2xl:sticky 2xl:top-20"><button class="fixed top-20 right-0 w-8 h-8 z-30 rounded-md bg-h-300 text-h-500 dark:bg-h-700 dark:text-h-200 2xl:hidden" x-show="! open" @click="toggle"><span class="text-hidden">목차</span><i class="fa-solid fa-list-check"></i></button>
-                              <div class="max-h-[calc(100vh-theme(spacing.20)-theme(spacing.10)-theme(spacing.3)-2rem)] overflow-hidden w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-40 max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:block" :class='open ? "max-2xl:right-4" : "max-2xl:-right-60"'>
-                                <div class="overflow-x-hidden overflow-y-scroll max-h-[inherit] w-[calc(theme(spacing.56)+theme(spacing.5))]"><button class="absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden" @click="toggle"><span class="text-hidden">목차 닫기</span><i class="fa-solid fa-xmark"></i></button>
-                                  <ol class="flex flex-col gap-y-3 max-2xl:p-6 max-2xl:pt-8 max-2xl:pr-14 2xl:px-8" x-ref="spy"><template x-for="heading in $data.headings" :key="heading.id">
-                                      <li class="text-h-400" :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class='{ "text-h-600 dark:text-h-200": heading.active }'></a></li>
-                                    </template></ol>
-                                </div>
+                              <div class="w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:p-6 max-2xl:pr-8 max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-40 max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:px-6 2xl:block" :class='open ? "max-2xl:right-4" : "max-2xl:-right-60"'><button class="absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden" @click="toggle"><span class="text-hidden">목차 닫기</span><i class="fa-solid fa-xmark"></i></button>
+                                <ul class="flex flex-col gap-y-3" x-ref="spy"><template x-for="heading in $data.headings" :key="heading.id">
+                                    <li class="text-h-400" :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class='{ "text-h-600 dark:text-h-200": heading.active }'></a></li>
+                                  </template></ul>
                               </div>
                             </div>
                           </div>
@@ -414,7 +481,7 @@
                   <div class="py-20 flex flex-col justify-center items-center">
                     <header class="flex flex-col items-center gap-y-2 mx-4 lg:mx-0"><a href="[##_article_rep_category_link_##]">[##_article_rep_category_##]</a>
                       <h1 class="text-center font-bold text-2xl text-h-800 dark:text-h-200 lg:text-3xl">[##_article_rep_title_##]</h1>
-                      <div><time class="text-h-400 text-sm">[##_article_rep_date_##]</time></div>
+                      <div><time class="text-h-400 text-xs">[##_article_rep_simple_date_##]</time></div>
                     </header>
                     <div class="flex flex-col items-center gap-y-4 px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
                       <p class="text-center leading-7 mt-8 text-h-800 dark:text-h-200">보호되어 있는 글입니다.<br>내용을 보시려면 비밀번호를 입력하세요.</p><input class="inline-block h-10 border-0 text-sm px-3 w-48 outline-none bg-h-300 text-h-400 dark:bg-h-700 dark:text-h-200" type="password" maxlength="16" id="[##_article_password_##]" name="[##_article_password_##]" onkeydown="if (event.keyCode == 13)[##_article_dissolve_##]" placeholder="비밀번호">
@@ -426,11 +493,13 @@
           </s_article_rep>
           <s_notice_rep>
             <s_index_article_rep>
-              <div class="mt-4 px-4 first:mt-20 lg:first:mt-40 lg:mt-0 lg:px-0 lg:w-idx lg:mx-auto" data-mode="list">
+              <div class="mt-4 px-5 first:mt-20 lg:first:mt-40 lg:mt-0 lg:px-0 lg:w-idx lg:mx-auto" data-mode="list">
                 <div class="post">
-                  <s_notice_rep_thumbnail><a class="thumbnail" href="[##_notice_rep_link_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_notice_rep_thumbnail_url_##]" data-sizes="auto" alt=""></a></s_notice_rep_thumbnail>
+                  <s_notice_rep_thumbnail>
+                    <div class="thumbnail" href="[##_notice_rep_link_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_notice_rep_thumbnail_url_##]" data-sizes="auto" alt=""></div>
+                  </s_notice_rep_thumbnail>
                   <div class="description flex flex-col">
-                    <h2><a class="text-h-800 dark:text-h-200 [&_img]:hidden" href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></h2><time class="text-h-400 text-sm">[##_notice_rep_date_##]</time>
+                    <h2><a class="text-h-800 dark:text-h-200 [&_img]:hidden" href="[##_notice_rep_link_##]">[##_notice_rep_title_##]</a></h2><time class="text-h-400 text-xs">[##_notice_rep_date_##]</time>
                     <p class="relative overflow-hidden text-h-400 leading-7">[##_notice_rep_summary_##]</p>
                   </div>
                 </div>
@@ -438,16 +507,16 @@
             </s_index_article_rep>
             <s_permalink_article_rep>
               <div id="permalink">
-                <header class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16">
+                <header class="h-64 mb-10 flex justify-center items-center">
                   <s_notice_rep_thumbnail>
                     <div class='thumbnail absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="[##_notice_rep_thumbnail_url_##]" alt=""></div>
                   </s_notice_rep_thumbnail>
                   <div class="description flex flex-col items-center gap-y-2 z-20 relative mx-4 text-h-800 dark:text-h-200 lg:mx-0"><a class="/notice">공지사항</a>
                     <h1 class="text-center font-bold text-2xl lg:text-3xl">[##_notice_rep_title_##]</h1>
-                    <div class="flex gap-x-2"><time class="text-sm">[##_notice_rep_date_##]</time></div>
+                    <div class="flex gap-x-2"><time class="text-xs">[##_notice_rep_date_##]</time></div>
                   </div>
                 </header>
-                <div class="px-4 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
+                <div class="px-5 w-full lg:max-w-screen-lg lg:w-pem lg:px-0 lg:mx-auto">
                   <article class="relative" id="content" x-ref="content">
                     <div x-data="content">
                       <s_if_var_toc><template x-if="$data.headings.length > 0">
@@ -459,18 +528,16 @@
                               </template></ol>
                           </div>
                         </template></s_if_var_toc>
-                      <div id="article" x-ref="article"><template x-ref="articleTemplate" x-teleport="#article">
+                      <div id="article" x-ref="article"><template x-ref="_article_" x-teleport="#article">
                           <div>[##_notice_rep_desc_##]</div>
                         </template></div>
                       <s_if_var_scrollspy><template x-if="$data.headings.length > 0">
-                          <div class="2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+theme(width.pem))/2)+theme(spacing.5))]" id="scrollspy" x-data="scrollspy" @scroll.window="scrollspy" x-transition:enter="transition ease-linear duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="show">
+                          <div class="2xl:absolute 2xl:top-0 2xl:h-full 2xl:ml-[calc(((1100px+theme(spacing.pem))/2)+theme(spacing.5))]" id="scrollspy" x-data="scrollspy" @scroll.window="scrollspy" x-transition:enter="transition ease-linear duration-200" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-200" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" x-show="show">
                             <div class="2xl:sticky 2xl:top-20"><button class="fixed top-20 right-0 w-8 h-8 z-30 rounded-md bg-h-300 text-h-500 dark:bg-h-700 dark:text-h-200 2xl:hidden" x-show="! open" @click="toggle"><span class="text-hidden">목차</span><i class="fa-solid fa-list-check"></i></button>
-                              <div class="max-h-[calc(100vh-theme(spacing.20)-theme(spacing.10)-theme(spacing.3)-2rem)] overflow-hidden w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-40 max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:block" :class='open ? "max-2xl:right-4" : "max-2xl:-right-60"'>
-                                <div class="overflow-x-hidden overflow-y-scroll max-h-[inherit] w-[calc(theme(spacing.56)+theme(spacing.5))]"><button class="absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden" @click="toggle"><span class="text-hidden">목차 닫기</span><i class="fa-solid fa-xmark"></i></button>
-                                  <ol class="flex flex-col gap-y-3 max-2xl:p-6 max-2xl:pt-8 max-2xl:pr-14 2xl:px-8" x-ref="spy"><template x-for="heading in $data.headings" :key="heading.id">
-                                      <li class="text-h-400" :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class='{ "text-h-600 dark:text-h-200": heading.active }'></a></li>
-                                    </template></ol>
-                                </div>
+                              <div class="w-56 text-sm box-border max-2xl:transition-[right] max-2xl:duration-200 max-2xl:rounded-xl max-2xl:p-6 max-2xl:pr-8 max-2xl:fixed max-2xl:top-20 max-2xl:right-4 max-2xl:z-40 max-2xl:bg-h-200 max-2xl:dark:bg-h-700 2xl:px-6 2xl:block" :class='open ? "max-2xl:right-4" : "max-2xl:-right-60"'><button class="absolute text-base top-2 right-4 text-h-500 dark:text-h-200 2xl:hidden" @click="toggle"><span class="text-hidden">목차 닫기</span><i class="fa-solid fa-xmark"></i></button>
+                                <ul class="flex flex-col gap-y-3" x-ref="spy"><template x-for="heading in $data.headings" :key="heading.id">
+                                    <li class="text-h-400" :class='{ "pl-0": heading.tagName === "H2", "pl-4": heading.tagName === "H3" }'><a class="duration-200 text-h-400 hover:text-h-600 dark:hover:text-h-200" :href="heading.href" x-text="heading.text" :class='{ "text-h-600 dark:text-h-200": heading.active }'></a></li>
+                                  </template></ul>
                               </div>
                             </div>
                           </div>
@@ -481,7 +548,7 @@
                     <footer class="mt-4" x-show="shown">
                       <div class="border-t border-b border-dotted border-h-400 mt-6 py-8 flex gap-x-5 items-center"><img class="lazyload rounded-full w-20 h-20" data-src="[##_image_##]" data-sizes="auto" width="80" height="80" alt="[##_blogger_##]">
                         <div class="flex flex-col gap-y-1">
-                          <div class="text-h-800 dark:text-h-200 font-bold">[##_blogger_##]</div>
+                          <div class="text-h-800 dark:text-h-200 font-bold blogger-text">[##_blogger_##]</div>
                           <div class="leading-7 text-sm text-h-400">[##_desc_##]</div>
                         </div>
                       </div>
@@ -492,7 +559,7 @@
             </s_permalink_article_rep>
           </s_notice_rep>
           <s_tag>
-            <div class="w-full px-4 mt-20 lg:mt-40 lg:mx-auto lg:w-idx lg:px-0" id="tag-cloud">
+            <div class="w-full px-5 mt-20 lg:mt-40 lg:mx-auto lg:w-idx lg:px-0" id="tag-cloud">
               <ul class="grid grid-cols-1 gap-4 sm:grid-cols-2 md:grid-cols-4 lg:grid-cols-6">
                 <s_tag_rep>
                   <li><a class="[##_tag_class_##] text-overflow-hidden text-center inline-block px-4 py-5 rounded-md duration-200 w-full bg-h-200 text-h-600 hover:bg-h-600 hover:text-h-200 dark:text-h-400 dark:bg-h-700 dark:hover:bg-h-600" href="[##_tag_link_##]">[##_tag_name_##]</a></li>
@@ -502,22 +569,32 @@
           </s_tag>
           <s_list>
             <section data-mode="[##_list_style_##]">
-              <header class="h-64 mb-10 flex justify-center items-center border-b border-b-solid border-b-h-200 dark:border-b-h-700 lg:mb-16">
+              <header class="h-64 mb-10 flex justify-center items-center">
                 <s_list_image>
-                  <div class='thumbnail absolute right-0 top-0 w-full h-64 before:content-[""] before:absolute before:right-0 before:top-0 before:w-full before:h-64 before:bg-h-900/50 before:z-10 [&+.description]:text-h-200'><img class="absolute right-0 top-0 w-full h-64 z-0 object-cover" src="[##_list_image_##]" alt=""></div>
+<!-- 첫페이지 & 카테고리 전체글 헤더 커스텀 이미지 -->
                 </s_list_image>
-                <div class="description flex flex-col items-center z-20 relative mx-4 text-center text-h-800 dark:text-h-200 lg:mx-0">
-                  <h1 class="font-bold text-2xl lg:text-3xl">[##_list_conform_##]</h1><span class="font-bold mt-3 empty:mt-0">[##_list_description_##]</span>
+                <div class="description flex flex-col items-center z-20 relative mx-4 text-center text-h-800 dark:text-h-200 lg:mx-0 mt-8">
+                  <h1 class="font-bold mt-4 text-2xl lg:text-4xl category-getter">[##_list_conform_##]</h1>
+                  <span class="text-sm mt-3 empty:mt-0">공부한 내용을 정리합니다</span>
                 </div>
               </header>
-              <div class="list px-4 lg:px-0 lg:w-idx lg:mx-auto" x-ref="list">
+<!-- 여기까지 -->
+              <div class="list px-5 lg:px-0 lg:w-idx lg:mx-auto" x-ref="list">
                 <s_list_rep>
                   <div class="post">
-                    <s_list_rep_thumbnail><a class="thumbnail" href="[##_list_rep_link_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_list_rep_thumbnail_##]" data-sizes="auto" alt=""></a></s_list_rep_thumbnail>
-                    <div class="description flex flex-col"><a class="text-sm text-h-400" href="[##_list_rep_category_link_##]">[##_list_rep_category_##]</a>
-                      <h2><a class="text-h-800 dark:text-h-200 [&_img]:hidden" href="[##_list_rep_link_##]">[##_list_rep_title_##]</a></h2><time class="text-h-400 text-sm">[##_list_rep_regdate_##]</time>
-                      <p class="relative overflow-hidden text-h-400 leading-7">[##_list_rep_summary_##]</p>
-                    </div>
+                    <s_list_rep_thumbnail>
+                      <a class="transition description-cate text-sm overflow-hidden" href="[##_list_rep_category_link_##]">[##_list_rep_category_##]</a>
+                      <a class="thumbnail" href="[##_list_rep_link_##]"><img class="lazyload object-cover bg-h-100" data-src="[##_list_rep_thumbnail_##]" data-sizes="auto" alt=""></a>
+                    </s_list_rep_thumbnail>
+                      <div class="description flex flex-col" style="height:8.5rem;">
+                        <h2><a class="text-h-800 dark:text-h-200 [&_img]:hidden" href="[##_list_rep_link_##]">[##_list_rep_title_##]</a></h2>
+                        <p class="relative overflow-hidden text-h-400 leading-7">[##_list_rep_summary_##]</p>
+                      </div>
+                      <div class="description-bottom"><!--그리드 커스텀-->
+                        <time class="text-h-400 text-xs block list-date">
+                          <span>[##_list_rep_date_month_##]</span>, [##_list_rep_date_year_##]
+                        </time>
+                      </div>
                   </div>
                 </s_list_rep>
               </div>
@@ -525,22 +602,28 @@
           </s_list>
           <s_paging>
             <ul class="flex justify-center items-center mt-8 lg:mt-20" id="paging">
-              <li><a class="[##_no_more_prev_##]" [##_prev_page_##]=""><span class="text-hidden">이전</span><i class="fa fa-angle-left"></i></a></li>
+              <li>
+                <div class="[##_no_more_prev_##]" [##_prev_page_##]=""><a [##_prev_page_##]><span class="text-hidden">이전</span><i class="fa fa-angle-left"></i></a></div>
+              </li>
               <s_paging_rep>
                 <li><a [##_paging_rep_link_##]="">[##_paging_rep_link_num_##]</a></li>
               </s_paging_rep>
-              <li><a class="[##_no_more_next_##]" [##_next_page_##]=""><i class="fa fa-angle-right"></i><span class="text-hidden">다음</span></a></li>
+              <li>
+                <div class="[##_no_more_next_##]" [##_next_page_##]=""><a [##_next_page_##]><i class="fa fa-angle-right"></i><span class="text-hidden">다음</span></a></div>
+              </li>
             </ul>
           </s_paging>
-        </main>
-        <aside class="h-full fixed top-0 w-s overflow-hidden z-40 transition-[left] duration-200 p-0 bg-h-200 dark:bg-h-700 <s_if_var_sidebar>xl:left-0</s_if_var_sidebar>" id="sidebar" :class='sidebar ? "left-0" : "-left-[calc(theme(width.s))]"'>
-          <div class="flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-[calc(theme(width.s)+theme(spacing.8))] absolute py-6 border-box">
+        </main><!-- 사이드바 배경 200에서 100으로 커스텀 -->
+        <aside class="h-full fixed top-0 w-sidebar overflow-hidden z-40 transition-[left] duration-200 p-0 bg-h-100 dark:bg-h-700 <s_if_var_sidebar>xl:left-0</s_if_var_sidebar>" id="sidebar" :class='sidebar ? "left-0" : "-left-64"'>
+          <div class="flex flex-col gap-y-6 overflow-x-hidden overflow-y-scroll h-full w-[calc(theme(width.sidebar)+theme(spacing.8))] absolute py-6 border-box">
             <s_sidebar>
-              <s_sidebar_element><!-- 프로필-->
-                <div class="sidebar-element">
-                  <div class="text-center flex flex-col items-center my-4"><img class="rounded-full" src="[##_image_##]" width="100" height="100" alt="[##_blogger_##]">
-                    <div><a class="link_tit inline-block pt-4 pb-1 font-medium" href="[##_blog_link_##]">[##_title_##]</a></div>
-                    <div class="text-h-400 text-sm">[##_blogger_##]</div>
+              <s_sidebar_element>
+                <div class="sidebar-element"><!-- 프로필 -->
+                  <div class="text-center flex flex-col items-center my-4">
+                    <a href="[##_blog_link_##]" alt="첫 화면으로">
+                      <img class="rounded-full" src="[##_image_##]" width="80" height="80" alt="[##_blogger_##]"></a>
+                    <div><a class="link_tit inline-block pt-4 pb-1 font-extrabold blogger-text" href="[##_blog_link_##]">[##_title_##]⚡</a></div>
+                    <div class="text-h-400 text-sm">에너지 넘치는 [##_blogger_##]</div>
                   </div>
                 </div>
               </s_sidebar_element>
@@ -568,8 +651,8 @@
               </s_sidebar_element>
               <s_sidebar_element><!-- 검색-->
                 <div class="sidebar-element">
-                  <s_search>
-                    <div class="flex items-center gap-x-3 border-box px-4 py-3 rounded-md bg-h-300 text-h-600 dark:bg-h-600 dark:text-h-300"><label for="search"><span class="text-hidden">검색</span><i class="text-base fa-solid fa-magnifying-glass"></i></label><input class="text-sm text-overflow-hidden border-none outline-none bg-h-300 dark:bg-h-600" id="search" name="[##_search_name_##]" value="[##_search_text_##]" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }"></div>
+                  <s_search><!-- 배경색 300에서 200으로 커스텀 -->
+                    <div class="flex items-center gap-x-3 border-box px-4 py-3 bg-h-200 text-h-600 dark:bg-h-600 rounded-full"><label for="search"><span class="text-hidden">검색</span><i class="text-base fa-solid fa-magnifying-glass"></i></label><input class="text-sm text-overflow-hidden border-none outline-none bg-h-200 dark:bg-h-600" id="search" name="[##_search_name_##]" value="[##_search_text_##]" onkeypress="if (event.keyCode == 13) { [##_search_onclick_submit_##] }"></div>
                   </s_search>
                 </div>
               </s_sidebar_element>
@@ -578,10 +661,11 @@
                   <div id="category" x-data="category">[##_category_list_##]</div>
                 </div>
               </s_sidebar_element>
-              <s_sidebar_element><!-- 블로그 메뉴-->
+              <s_sidebar_element><!-- 블로그 메뉴 -->
+              <!-- 커스텀 제목 삭제-->
                 <div class="sidebar-element">
                   <div id="blogmenu">
-                    <h2>블로그 메뉴</h2>[##_blog_menu_##]
+                    <h2></h2>[##_blog_menu_##]
                   </div>
                 </div>
               </s_sidebar_element>
@@ -628,6 +712,7 @@
                   </div>
                 </div>
               </s_sidebar_element>
+
               <s_sidebar_element><!-- 최근 댓글-->
                 <div class="sidebar-element">
                   <div>
@@ -643,6 +728,7 @@
                   </div>
                 </div>
               </s_sidebar_element>
+
               <s_sidebar_element><!-- 최근 글-->
                 <div class="sidebar-element">
                   <div>
@@ -660,27 +746,120 @@
                   </div>
                 </div>
               </s_sidebar_element>
+
             </s_sidebar>
+
+            
+            <div class="border-b border-h-300-o my-4 dark:border-h-100/20">
+              <!-- 라인 커스텀 -->
+            </div>
             <div class="sidebar-element">
               <div class="text-h-400 text-xs" id="copyright"><!--이 부분은 스킨 소개페이지 및 제작자의 깃허브 링크로 이동됩니다.
-hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍니다.--><a href="https://pronist.tistory.com/5">hELLO</a> · Designed By <a href="https://github.com/pronist">정상우</a>.</div>
+hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍니다.--><a href="https://pronist.tistory.com/5" target="_blank">hELLO</a> · Designed By <a href="https://github.com/pronist" target="_blank">정상우</a></div>
+              <div class="text-h-400 text-xs mt-1" id="copyright"><!--freepik 추가-->
+                Icon Made By <a href="https://www.flaticon.com/authors/freepik" target="_blank">Freepik</a> · <a href="https://www.flaticon.com/" target="_blank">Flaticon</a></div>
             </div>
           </div><template x-teleport="body">
-            <div class="fixed top-0 left-0 w-screen h-screen bg-h-900/50 backdrop-blur z-30 duration-200" x-show="sidebar" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="sidebar = false"></div>
+            <div class="fixed top-0 left-0 w-screen h-screen bg-h-900/50 z-30 duration-200" x-show="sidebar" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0" @click="sidebar = false"></div>
           </template>
         </aside>
-        <div class="w-full box-border px-4 h-14 top-0 fixed flex justify-between items-center z-30 backdrop-blur bg-h-100/50 dark:bg-h-800/80 xl:px-5 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
-          <div><img class="lazyload rounded-full w-9 h-9 cursor-pointer <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>" @click="sidebar = ! sidebar" data-src="[##_image_##]" data-sizes="auto" alt="[##_blogger_##]" width="36" height="36"></div>
-          <div>
-            <div class="m-0 text-sm font-bold h-5 text-overflow-hidden max-w-[calc(80vw-152px)] text-h-800 dark:text-h-200">[##_page_title_##]</div>
+<!-- 커스텀 nav-->
+<nav id="navmain">
+        <div class="w-full box-border px-3 h-14 top-0 fixed flex justify-between items-center z-30 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>">
+          <div><button class="flex justify-center items-center w-10 h-10 outline-0 rounded-full text-h-500 bg-h-100/50 hover:bg-h-300 dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600 btn_menu_toolbar <s_if_var_sidebar>xl:invisible</s_if_var_sidebar>"  @click="sidebar = ! sidebar">
+            <i class="fa-solid fa-bars font-bold text-sm"></i></button></div>
+          <div x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+            <div class="m-0 text-sm font-bold h-5 text-overflow-hidden max-w-[calc(80vw-152px)] text-h-800 dark:text-h-200"><a href="#" roll="button" data-func="go-to-top">[##_page_title_##]</a></div>
           </div>
-          <div><button class="subscription flex justify-center items-center w-10 h-10 outline-0 rounded-full bg-h-200 text-h-500 hover:bg-h-300 dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600 btn_menu_toolbar btn_subscription #subscribe" :data-blog-id="T.config.BLOG.id" :data-url="TistoryBlog.tistoryUrl"><span class="text-hidden">구독하기</span><i class="fa-solid fa-star font-bold text-sm"></i></button></div>
+          <div x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+            <button class="subscription flex justify-center items-center w-10 h-10 outline-0 rounded-full text-h-500 bg-h-200 hover:bg-h-300 dark:text-h-200 dark:bg-h-700 dark:hover:bg-h-600 btn_menu_toolbar" x-data="theme" @click="toggle"><span class="text-hidden">테마</span><i class="fa-solid fa-moon text-base"></i></button>
+          </div>
         </div>
-        <div class="flex justify-end px-4 w-full box-border fixed text-sm z-30 bottom-3 xl:bottom-4 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" id="bottom">
-          <div class="flex gap-x-3"><button x-data="theme" @click="toggle"><span class="text-hidden">테마</span><i class="fa-solid fa-moon text-base"></i></button><a href="#hELLO"><span class="text-hidden">상단으로</span><i class="fa-solid fa-chevron-up text-base"></i></a></div>
+
+        <div class="w-full box-border px-3 h-14 top-0 fixed flex justify-between items-center z-10 backdrop-blur bg-h-100/50 dark:bg-h-800/80 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" x-data="top" @scroll.window="toggle" x-show="open" x-transition:enter="transition ease-linear duration-300" x-transition:enter-start="opacity-0" x-transition:enter-end="opacity-100" x-transition:leave="transition ease-linear duration-300" x-transition:leave-start="opacity-100" x-transition:leave-end="opacity-0">
+        </div>
+</nav>
+<!-- 커스텀 nav 끝 -->
+        <div class="flex justify-end px-3 w-full box-border fixed text-sm z-10 bottom-3 xl:bottom-4 <s_if_var_sidebar>xl:w-c</s_if_var_sidebar>" id="bottom">
+          <div class="flex gap-x-3"><button type="button" onclick="window.scrollTo(0,0);"><span class="text-hidden">상단으로</span><i class="fa-solid fa-chevron-up text-base"></i></button></div>
         </div>
       </div>
     </s_t3>
-  </body>
+<script>
+// 리스트 날짜 변경
+  const months = document.querySelectorAll(".post .list-date");
+  
+  for (const month of months) {
+    const monthNomber = month.firstElementChild.textContent - 1;
+    const m = ["Jan","Feb","Mar","Apr","May","Jun","Jul","Aug", "Sep","Oct","Nov","Dec"];
+    month.firstElementChild.textContent = m[monthNomber];
+  }
+</script>
+<script>
+// 카테고리 글 숫자의 괄호 변경
+  const cateCount = document.querySelectorAll('#category .c_cnt');
+  for (i = 0; i < cateCount.length; i++) {
+    let pattern = /[()]/gi;
+    let str = cateCount[i].innerHTML;
+    let n = str.replace(pattern, '');
+    cateCount[i].innerHTML = n;
+  }
+</script>
+<script>
+// 커스텀 리스트 카테고리명
+    const cateBadgeTitle = document.querySelectorAll(".description-cate");
+    window.addEventListener('DOMContentLoaded', function() {
+      function cateBadgeHandler(catebadge){
+        const cateBadgeText = catebadge.textContent;
+        if(cateBadgeText.includes('/')){
+          catebadge.textContent = cateBadgeText.substring(cateBadgeText.lastIndexOf('/')+1);
+        }
+      }
+      cateBadgeTitle.forEach(cateBadgeHandler);
+    });
+</script>
+<script>
+      //메인페이지일 경우 타이틀 변경하기
+    window.addEventListener('DOMContentLoaded', function() {
+      if ( window.location.pathname == '/') {
+        const title = document.querySelector('h1');
+        title.textContent = "enerGneer";
+      }
+    });
+</script>
+<script>
+// 상위 카테고리 링크 제거하고 펼치기 버튼으로 변경하기
+    const cateTitles = document.querySelector(".category_list").children;
+    window.addEventListener('DOMContentLoaded', function() {
+      function cateTitleHandler(category) {
+        const cateTitleText = category.children[1];
+        if (cateTitleText !== undefined) {
+          cateTitleText.removeAttribute('href');
+          cateTitleText.setAttribute('x-on:click', 'open = ! open');
+          cateTitleText.setAttribute(':class', '{ "duration-200": open }');
+        }
+      }
+      cateTitles.forEach(cateTitleHandler);
+    });
+  </script>
+<script>
+// 커스텀 현재 카테고리 펴기
+    const cateLists = document.querySelectorAll(".sub_category_list");
+    const currentPageCate = document.querySelector(".category-getter").textContent; 
 
+    window.addEventListener('load', function() {
+      function cateHandler(category) {
+        const cateText = category.parentNode.childNodes[1].childNodes[0].textContent.trim();
+        if(currentPageCate.includes(cateText)){
+          category.parentNode.firstChild.click();
+        }
+      }
+      cateLists.forEach(cateHandler);
+      //메인페이지일 경우 첫번째 카테고리 펴기
+      // if ( window.location.pathname == '/' || window.location.pathname == '/category' ) {
+      //   cateLists[0].parentNode.firstChild.click();
+      // }
+    });
+</script>
+  </body>
 </html>
