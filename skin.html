@@ -864,5 +864,13 @@ hELLO 는 무료인 만큼, 링크의 주소는 반드시 지켜주시기 바랍
       // }
     });
 </script>
+<script>
+      document.querySelectorAll("article > *:not(figure):not(pre)").forEach(node => {
+      // 백틱으로 감싸진 텍스트를 <code> 태그로 감싸는 정규 표현식
+      const regex = /`([^`]+)`/g;
+      node.innerHTML = node.innerHTML.replace(regex, (match, p1) => `<code>${p1}</code>`);
+});
+
+</script>
   </body>
 </html>

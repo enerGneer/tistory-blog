@@ -354,7 +354,7 @@ code,
 kbd,
 samp,
 pre {
-  font-family: D2Coding, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+  font-family: D2Coding, ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace !important;
   /* 1 */
   font-size: 0.95em; /*커스텀*/
   /* 2 */
